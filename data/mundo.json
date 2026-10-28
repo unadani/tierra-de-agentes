@@ -1,0 +1,244 @@
+{
+  "salas": {
+    "maestro": {
+      "nombre": "Gran Maestro",
+      "descripcion": "Plantilla: quien recorre todos los lugares y responde por todos los equipos.",
+      "color": "#C9952E",
+      "orden": 0,
+      "tono": 5
+    },
+    "principal": {
+      "nombre": "Equipo principal",
+      "descripcion": "Plantilla: el equipo que planifica y hace el trabajo central. Cambia el nombre y la descripción.",
+      "lugar": "valle",
+      "lugarNombre": "Aldaren",
+      "orden": 1,
+      "suelo": "#D9D3C3",
+      "tono": 0
+    },
+    "datos": {
+      "nombre": "Equipo de datos",
+      "descripcion": "Plantilla: el equipo que busca, limpia y ordena datos.",
+      "lugar": "cobre",
+      "lugarNombre": "Colinas de Cobre",
+      "orden": 2,
+      "suelo": "#8E877D",
+      "tono": 1
+    },
+    "proyectos": {
+      "nombre": "Proyectos",
+      "descripcion": "Plantilla: el equipo que vigila plazos y cronogramas.",
+      "lugar": "atalaya",
+      "lugarNombre": "La Atalaya",
+      "orden": 3,
+      "suelo": "#B7B09E",
+      "tono": 4
+    },
+    "registro": {
+      "nombre": "Registro",
+      "descripcion": "Plantilla: la memoria del mundo, donde se anota cada paso.",
+      "lugar": "arboleda",
+      "lugarNombre": "La Arboleda",
+      "orden": 4,
+      "suelo": "#6E8A4E",
+      "tono": 3
+    }
+  },
+  "lugares": {
+    "valle": {
+      "nombre": "Aldaren, el Valle de la Cascada",
+      "rol": "Aquí empieza todo viaje",
+      "descripcion": "Un valle escondido junto a una cascada, donde se reúne el consejo antes de cada partida. Buen lugar para quien planifica.",
+      "tipo": "valle",
+      "x": -16, "z": -10,
+      "orden": 1,
+      "suelo": "#D8CCB0",
+      "territorio": "#C9A86A"
+    },
+    "atalaya": {
+      "nombre": "La Atalaya de los Vientos",
+      "rol": "Se vigilan los plazos",
+      "descripcion": "Una torre en lo alto de la colina, con una piedra que brilla. Desde aquí se ven todos los proyectos a la vez.",
+      "tipo": "atalaya",
+      "x": -30, "z": 12,
+      "orden": 1.5,
+      "suelo": "#A89C80",
+      "territorio": "#8A7A8A"
+    },
+    "prados": {
+      "nombre": "Brezal, los Prados de las Lomas",
+      "rol": "Se juntan las provisiones",
+      "descripcion": "Casas redondas bajo las lomas, huertos y un molino. Buen lugar para quien reúne materiales y fuentes.",
+      "tipo": "prados",
+      "x": -42, "z": 2,
+      "orden": 2,
+      "suelo": "#9DBA5E",
+      "territorio": "#7FA84A"
+    },
+    "ciudad": {
+      "nombre": "Velmira, la Ciudad Blanca",
+      "rol": "Se construye la obra grande",
+      "descripcion": "Una ciudad de muros blancos en terrazas, con una torre alta. Buen lugar para el trabajo largo y central.",
+      "tipo": "ciudad",
+      "x": 34, "z": 26,
+      "orden": 3,
+      "suelo": "#E2DFD6",
+      "territorio": "#B8B3A6"
+    },
+    "forja": {
+      "nombre": "Ondral, la Forja de Piedra",
+      "rol": "Se forjan las piezas",
+      "descripcion": "Una herrería de piedra con el fuego siempre encendido, junto a una vieja puerta en la montaña. Buen lugar para quien diseña y construye.",
+      "tipo": "forja",
+      "x": -2, "z": 3,
+      "orden": 3.5,
+      "suelo": "#B9A27A",
+      "territorio": "#9A7A4A"
+    },
+    "hayedo": {
+      "nombre": "Sílvaren, el Bosque de Hayas",
+      "rol": "Todo se pone a prueba",
+      "descripcion": "Un bosque espeso donde nada pasa sin ser revisado. Buen lugar para quien verifica y controla la calidad.",
+      "tipo": "hayedo",
+      "x": 30, "z": -6,
+      "orden": 4,
+      "suelo": "#4E6E34",
+      "territorio": "#2F5A24"
+    },
+    "puerto": {
+      "nombre": "Brumalinde, el Puerto de Niebla",
+      "rol": "De aquí zarpan las entregas",
+      "descripcion": "Barcos blancos amarrados al muelle y un faro. Buen lugar para quien pule, empaca y entrega.",
+      "tipo": "puerto",
+      "x": -64, "z": 0,
+      "orden": 5,
+      "suelo": "#D6D2C8",
+      "territorio": "#A8A49A"
+    },
+    "montana": {
+      "nombre": "Tharrok, la Montaña Sola",
+      "rol": "La gran empresa",
+      "descripcion": "Una montaña con una puerta tallada en la roca. Buen lugar para un proyecto grande con muchas piezas.",
+      "tipo": "montana",
+      "x": 46, "z": -26,
+      "orden": 6,
+      "suelo": "#7A7268",
+      "territorio": "#6E665A"
+    },
+    "colmenar": {
+      "nombre": "La Cabaña de las Colmenas",
+      "rol": "Oficio y hospitalidad",
+      "descripcion": "Un salón de madera entre colmenas y flores. Buen lugar para un equipo pequeño y constante.",
+      "tipo": "colmenar",
+      "x": 10, "z": -12,
+      "orden": 7,
+      "suelo": "#B38A55",
+      "territorio": "#D9A84A"
+    },
+    "arboleda": {
+      "nombre": "La Arboleda Antigua",
+      "rol": "Se guarda la memoria",
+      "descripcion": "Entre los árboles más viejos se escucha y se anota cada paso, sin prisa.",
+      "tipo": "arboleda",
+      "x": 0, "z": 16,
+      "orden": 8,
+      "suelo": "#4A5E34",
+      "territorio": "#2E4A26"
+    },
+    "cobre": {
+      "nombre": "Las Colinas de Cobre",
+      "rol": "Se excavan los datos",
+      "descripcion": "Lomas redondas con la boca de una mina y un carro sobre rieles. Buen lugar para quien saca datos de la roca.",
+      "tipo": "cobre",
+      "x": 64, "z": -10,
+      "orden": 9,
+      "suelo": "#7A5A44",
+      "territorio": "#8A4E32"
+    }
+  },
+  "agentes": {
+    "maestro": {
+      "personaje": "Orvald, el Gran Maestro",
+      "nombre": "Función por definir",
+      "descripcion": "",
+      "sala": "maestro",
+      "megaCoordinador": true,
+      "itinerante": true,
+      "recorreTodo": true,
+      "estado": "inactivo",
+      "voz": "Viejo, alegre y sin apuro. Conoce cada camino del mapa.",
+      "apariencia": {
+        "raza": "hombre",
+        "tunica": "#5A4A8A",
+        "piernas": "#3A2E4A",
+        "pelo": "#E8E4DA",
+        "barba": "#E8E4DA",
+        "sombrero": "#5A4A8A",
+        "accesorios": ["barba", "sombrero", "baston"]
+      }
+    },
+    "guia": {
+      "personaje": "Liria, la Guía",
+      "nombre": "Función por definir",
+      "descripcion": "",
+      "sala": "principal",
+      "lugar": "valle",
+      "fase": "Dirección",
+      "coordinador": true,
+      "actividad": "mapas",
+      "estado": "inactivo",
+      "voz": "Serena y ordenada. Siempre sabe cuál es el siguiente paso.",
+      "apariencia": {
+        "raza": "elfo",
+        "mujer": true,
+        "tunica": "#3E6B5A",
+        "piernas": "#2E3E36",
+        "pelo": "#2A2018",
+        "peloLargo": true,
+        "accesorios": ["orejas", "libro"]
+      }
+    },
+    "explorador": {
+      "personaje": "Pim, el Explorador",
+      "nombre": "Función por definir",
+      "descripcion": "",
+      "sala": "principal",
+      "lugar": "prados",
+      "fase": "Agentes",
+      "actividad": "granja",
+      "estado": "inactivo",
+      "voz": "Curioso y conversador. Vuelve de cada viaje con los bolsillos llenos.",
+      "apariencia": {
+        "raza": "mediano",
+        "tunica": "#B0703A",
+        "piernas": "#5A4A2A",
+        "pelo": "#7A4A22",
+        "accesorios": []
+      }
+    }
+  },
+  "proyectos": {
+    "proyecto-de-ejemplo": {
+      "nombre": "Proyecto de ejemplo",
+      "tipo": "otro",
+      "estado": "en curso",
+      "fase": "Planificación",
+      "destino": "",
+      "plazo": "2027-06-30",
+      "carpeta": "",
+      "notas": "Edítalo o bórralo desde la Torre del Vigía."
+    }
+  },
+  "eventos": {
+    "20261027T120000Z-maestro": {
+      "agente": "maestro",
+      "estado": "listo",
+      "nota": "El mundo está listo para recibir agentes.",
+      "ts": "2026-10-27T12:00:00Z"
+    }
+  },
+  "historia": {},
+  "tesoro": {
+    "dragon": { "monedas": 0, "joyas": 0, "cofres": 0 }
+  }
+}
