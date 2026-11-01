@@ -1,9 +1,10 @@
 {
+  "mostrarDemo": true,
   "salas": {
     "maestro": {
       "nombre": "Gran Maestro",
       "descripcion": "Plantilla: quien recorre todos los lugares y responde por todos los equipos.",
-      "color": "#C9952E",
+      "color": "#1F62D0",
       "orden": 0,
       "tono": 5
     },
@@ -13,7 +14,7 @@
       "lugar": "valle",
       "lugarNombre": "Aldaren",
       "orden": 1,
-      "suelo": "#D9D3C3",
+      "suelo": "#FFF3C4",
       "tono": 0
     },
     "datos": {
@@ -22,7 +23,7 @@
       "lugar": "cobre",
       "lugarNombre": "Colinas de Cobre",
       "orden": 2,
-      "suelo": "#8E877D",
+      "suelo": "#FFDCCB",
       "tono": 1
     },
     "proyectos": {
@@ -31,7 +32,7 @@
       "lugar": "atalaya",
       "lugarNombre": "La Atalaya",
       "orden": 3,
-      "suelo": "#B7B09E",
+      "suelo": "#ECE2FA",
       "tono": 4
     },
     "registro": {
@@ -40,7 +41,7 @@
       "lugar": "arboleda",
       "lugarNombre": "La Arboleda",
       "orden": 4,
-      "suelo": "#6E8A4E",
+      "suelo": "#D3EFCB",
       "tono": 3
     }
   },
@@ -50,110 +51,121 @@
       "rol": "Aquí empieza todo viaje",
       "descripcion": "Un valle escondido junto a una cascada, donde se reúne el consejo antes de cada partida. Buen lugar para quien planifica.",
       "tipo": "valle",
-      "x": -16, "z": -10,
+      "x": -16,
+      "z": -10,
       "orden": 1,
-      "suelo": "#D8CCB0",
-      "territorio": "#C9A86A"
+      "suelo": "#FFF3C4",
+      "territorio": "#FFD84A"
     },
     "atalaya": {
       "nombre": "La Atalaya de los Vientos",
       "rol": "Se vigilan los plazos",
-      "descripcion": "Una torre en lo alto de la colina, con una piedra que brilla. Desde aquí se ven todos los proyectos a la vez.",
+      "descripcion": "Una torre en lo alto de la colina, con una lámpara que brilla. Desde aquí se ven todos los proyectos a la vez.",
       "tipo": "atalaya",
-      "x": -30, "z": 12,
+      "x": -30,
+      "z": 12,
       "orden": 1.5,
-      "suelo": "#A89C80",
-      "territorio": "#8A7A8A"
+      "suelo": "#ECE2FA",
+      "territorio": "#B58CF0"
     },
     "prados": {
-      "nombre": "Brezal, los Prados de las Lomas",
+      "nombre": "Brezal, la Granja de las Lomas",
       "rol": "Se juntan las provisiones",
-      "descripcion": "Casas redondas bajo las lomas, huertos y un molino. Buen lugar para quien reúne materiales y fuentes.",
+      "descripcion": "Una granja de techo rojo, casitas de colores, huertos y un molino. Buen lugar para quien reúne materiales y provisiones.",
       "tipo": "prados",
-      "x": -42, "z": 2,
+      "x": -42,
+      "z": 2,
       "orden": 2,
-      "suelo": "#9DBA5E",
-      "territorio": "#7FA84A"
+      "suelo": "#E6F6CC",
+      "territorio": "#9BD84A"
     },
     "ciudad": {
-      "nombre": "Velmira, la Ciudad Blanca",
+      "nombre": "Velmira, el Castillo de las Terrazas",
       "rol": "Se construye la obra grande",
-      "descripcion": "Una ciudad de muros blancos en terrazas, con una torre alta. Buen lugar para el trabajo largo y central.",
+      "descripcion": "Un castillo de bloques en terrazas, con una torre de techo azul. Buen lugar para el trabajo largo y central.",
       "tipo": "ciudad",
-      "x": 34, "z": 26,
+      "x": 34,
+      "z": 26,
       "orden": 3,
-      "suelo": "#E2DFD6",
-      "territorio": "#B8B3A6"
+      "suelo": "#F4F4F0",
+      "territorio": "#8FB8FF"
     },
     "forja": {
       "nombre": "Ondral, la Forja de Piedra",
       "rol": "Se forjan las piezas",
-      "descripcion": "Una herrería de piedra con el fuego siempre encendido, junto a una vieja puerta en la montaña. Buen lugar para quien diseña y construye.",
+      "descripcion": "Una herrería de piedra con el fuego siempre encendido, junto a un carro minero lleno de oro. Buen lugar para quien diseña y construye.",
       "tipo": "forja",
-      "x": -2, "z": 3,
+      "x": -2,
+      "z": 3,
       "orden": 3.5,
-      "suelo": "#B9A27A",
-      "territorio": "#9A7A4A"
+      "suelo": "#FFE3C8",
+      "territorio": "#FF9E4A"
     },
     "hayedo": {
       "nombre": "Sílvaren, el Bosque de Hayas",
       "rol": "Todo se pone a prueba",
-      "descripcion": "Un bosque espeso donde nada pasa sin ser revisado. Buen lugar para quien verifica y controla la calidad.",
+      "descripcion": "Un bosque espeso con una casa en el árbol, donde nada pasa sin ser revisado. Buen lugar para quien verifica y controla la calidad.",
       "tipo": "hayedo",
-      "x": 30, "z": -6,
+      "x": 30,
+      "z": -6,
       "orden": 4,
-      "suelo": "#4E6E34",
-      "territorio": "#2F5A24"
+      "suelo": "#D3EFCB",
+      "territorio": "#1E8A3C"
     },
     "puerto": {
-      "nombre": "Brumalinde, el Puerto de Niebla",
+      "nombre": "Brumalinde, el Puerto del Faro",
       "rol": "De aquí zarpan las entregas",
-      "descripcion": "Barcos blancos amarrados al muelle y un faro. Buen lugar para quien pule, empaca y entrega.",
+      "descripcion": "Barquitos de velas de colores amarrados al muelle y un faro rojo y blanco. Buen lugar para quien pule, empaca y entrega.",
       "tipo": "puerto",
-      "x": -64, "z": 0,
+      "x": -64,
+      "z": 0,
       "orden": 5,
-      "suelo": "#D6D2C8",
-      "territorio": "#A8A49A"
+      "suelo": "#E3F3FF",
+      "territorio": "#6CC2FF"
     },
     "montana": {
-      "nombre": "Tharrok, la Montaña Sola",
+      "nombre": "Tharrok, la Montaña del Trueno",
       "rol": "La gran empresa",
-      "descripcion": "Una montaña con una puerta tallada en la roca. Buen lugar para un proyecto grande con muchas piezas.",
+      "descripcion": "Una montaña de bloques con una puerta tallada en la roca. Buen lugar para un proyecto grande con muchas piezas.",
       "tipo": "montana",
-      "x": 46, "z": -26,
+      "x": 46,
+      "z": -26,
       "orden": 6,
-      "suelo": "#7A7268",
-      "territorio": "#6E665A"
+      "suelo": "#E0E4EA",
+      "territorio": "#9AA2AE"
     },
     "colmenar": {
       "nombre": "La Cabaña de las Colmenas",
       "rol": "Oficio y hospitalidad",
       "descripcion": "Un salón de madera entre colmenas y flores. Buen lugar para un equipo pequeño y constante.",
       "tipo": "colmenar",
-      "x": 10, "z": -12,
+      "x": 10,
+      "z": -12,
       "orden": 7,
-      "suelo": "#B38A55",
-      "territorio": "#D9A84A"
+      "suelo": "#FFEAB3",
+      "territorio": "#FFC12E"
     },
     "arboleda": {
       "nombre": "La Arboleda Antigua",
       "rol": "Se guarda la memoria",
-      "descripcion": "Entre los árboles más viejos se escucha y se anota cada paso, sin prisa.",
+      "descripcion": "Entre árboles viejos y hongos gigantes se escucha y se anota cada paso, sin prisa.",
       "tipo": "arboleda",
-      "x": 0, "z": 16,
+      "x": 0,
+      "z": 16,
       "orden": 8,
-      "suelo": "#4A5E34",
-      "territorio": "#2E4A26"
+      "suelo": "#D3EFCB",
+      "territorio": "#2E9E4A"
     },
     "cobre": {
       "nombre": "Las Colinas de Cobre",
       "rol": "Se excavan los datos",
       "descripcion": "Lomas redondas con la boca de una mina y un carro sobre rieles. Buen lugar para quien saca datos de la roca.",
       "tipo": "cobre",
-      "x": 64, "z": -10,
+      "x": 64,
+      "z": -10,
       "orden": 9,
-      "suelo": "#7A5A44",
-      "territorio": "#8A4E32"
+      "suelo": "#FFDCCB",
+      "territorio": "#F07A4A"
     }
   },
   "agentes": {
@@ -169,12 +181,16 @@
       "voz": "Viejo, alegre y sin apuro. Conoce cada camino del mapa.",
       "apariencia": {
         "raza": "hombre",
-        "tunica": "#5A4A8A",
-        "piernas": "#3A2E4A",
-        "pelo": "#E8E4DA",
-        "barba": "#E8E4DA",
-        "sombrero": "#5A4A8A",
-        "accesorios": ["barba", "sombrero", "baston"]
+        "tunica": "#1F62D0",
+        "piernas": "#1B1D24",
+        "pelo": "#F4F4F0",
+        "barba": "#F4F4F0",
+        "sombrero": "#1F62D0",
+        "accesorios": [
+          "barba",
+          "sombrero",
+          "baston"
+        ]
       }
     },
     "guia": {
@@ -191,11 +207,14 @@
       "apariencia": {
         "raza": "elfo",
         "mujer": true,
-        "tunica": "#3E6B5A",
-        "piernas": "#2E3E36",
+        "tunica": "#22943E",
+        "piernas": "#1B1D24",
         "pelo": "#2A2018",
         "peloLargo": true,
-        "accesorios": ["orejas", "libro"]
+        "accesorios": [
+          "orejas",
+          "libro"
+        ]
       }
     },
     "explorador": {
@@ -210,8 +229,8 @@
       "voz": "Curioso y conversador. Vuelve de cada viaje con los bolsillos llenos.",
       "apariencia": {
         "raza": "mediano",
-        "tunica": "#B0703A",
-        "piernas": "#5A4A2A",
+        "tunica": "#F57C1F",
+        "piernas": "#8A4B22",
         "pelo": "#7A4A22",
         "accesorios": []
       }
@@ -239,6 +258,10 @@
   },
   "historia": {},
   "tesoro": {
-    "dragon": { "monedas": 0, "joyas": 0, "cofres": 0 }
+    "dragon": {
+      "monedas": 0,
+      "joyas": 0,
+      "cofres": 0
+    }
   }
 }
