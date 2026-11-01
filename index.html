@@ -1,40 +1,46 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Tierra de Agentes</title>
+<meta name="description" content="Give your AI agents a world to live in: a 3D toy-brick fantasy map where each agent shows what it is doing, live.">
+<meta property="og:title" content="Tierra de Agentes">
+<meta property="og:description" content="Give your AI agents a world to live in: a 3D toy-brick fantasy map where each agent shows what it is doing, live.">
+<meta property="og:image" content="https://unadani.github.io/tierra-de-agentes/docs/social-preview.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap">
 <style>
-/* Look: an old hand-drawn map — aged parchment, iron-gall ink, red ink for names; by night, candlelight. */
+/* Look: a toy-brick play set — bright primary plastic, studs on every plate, rounded friendly type; by night, a lamp-lit playroom. */
 :root{
-  --bg:#E9DCBC; --surface:#F3E9D0; --raised:#FAF3E2; --ink:#2E2216; --muted:#6E5A40; --line:#B89E74;
-  --accent:#8E2A22;
-  --s-trabajando:#B07A12; --s-esperando:#7A4E7A; --s-halt:#A3261C; --s-listo:#4E6E2A; --s-inactivo:#9C8C70;
-  --room-0:#E8D9B0; --room-1:#DCCFA0; --room-2:#E6CFA6; --room-3:#D9C6A8; --room-4:#D8CFAE; --room-5:#E4CDB0;
-  --desk:#E2D3AE; --figure:#4A3A2A; --screen-off:#8A7A5E;
-  --sky:#E9DCBC; --sea:#A9D8EC; --waves:#5E9EC2; --grass:#B6AF79; --water:#86C4E2; --rock:#8A7A64; --snow:#F4ECD8; --wood:#7A5230; --leaf:#5A6B32; --leafLight:#8A9A4E; --leafDeep:#3E4A22; --grassHill:#9C9A62; --road:#C9AE7E; --night:0;
-  --font-display:"IM Fell English SC","IM Fell English",Georgia,"Times New Roman",serif;
-  --font-body:"IM Fell English",Georgia,"Times New Roman",serif;
-  --font-elvish:"Uncial Antiqua","IM Fell English SC",Georgia,serif;
-  --font-mono:"IM Fell English SC","IM Fell English",Georgia,serif;
+  --bg:#F4F6FA; --surface:#FFFFFF; --raised:#FFFFFF; --ink:#1B1D24; --muted:#5B6170; --line:#D5DAE3;
+  --accent:#D62B20;
+  --s-trabajando:#E39A00; --s-esperando:#1F62D0; --s-halt:#D62B20; --s-listo:#22943E; --s-inactivo:#9AA1AD;
+  --room-0:#FFE58A; --room-1:#BFE3FF; --room-2:#FFD2C2; --room-3:#D7F0B8; --room-4:#E6D6FF; --room-5:#FFE0A8;
+  --desk:#F7C21E; --figure:#1B1D24; --screen-off:#8A93A3;
+  --sky:#8FD3FF; --sea:#3C9EE8; --waves:#FFFFFF; --grass:#4CB050; --water:#2F86DA; --rock:#7E8794; --snow:#FFFFFF; --wood:#8A4B22; --leaf:#1E8A3C; --leafLight:#8CC63F; --leafDeep:#0E6A2E; --grassHill:#3E9E46; --road:#E9C98B; --night:0;
+  --font-display:"Fredoka","Nunito",system-ui,sans-serif;
+  --font-body:"Nunito",system-ui,-apple-system,sans-serif;
+  --font-title:"Fredoka","Nunito",system-ui,sans-serif;
+  --font-mono:"Nunito",system-ui,sans-serif;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#1E1710; --surface:#2A2016; --raised:#33281C; --ink:#EEDFC0; --muted:#B39C78; --line:#5A4630;
-    --accent:#D8694E;
-    --s-trabajando:#E0A63A; --s-esperando:#B98AB9; --s-halt:#E0533F; --s-listo:#9DBA5A; --s-inactivo:#7A6A52;
-    --room-0:#3A2E20; --room-1:#34301E; --room-2:#3E2C1E; --room-3:#352A2C; --room-4:#2E3020; --room-5:#3A2A22;
-    --desk:#3E3020; --figure:#D8C8A8; --screen-off:#4A3C2A;
-    --sky:#1E1710; --sea:#1C3A4C; --waves:#4E86A6; --grass:#4A4A2A; --water:#2A5C76; --rock:#5E5240; --snow:#CFC2A4; --wood:#5A3A20; --leaf:#3A4422; --leafLight:#5A6430; --leafDeep:#262E16; --grassHill:#545430; --road:#6A5434; --night:1;
+    --bg:#12151C; --surface:#1C2029; --raised:#252A35; --ink:#EEF1F6; --muted:#A3AABA; --line:#384050;
+    --accent:#FF5A4A;
+    --s-trabajando:#FFC233; --s-esperando:#5C9BFF; --s-halt:#FF5A4A; --s-listo:#4CC468; --s-inactivo:#6E7686;
+    --room-0:#5A4A12; --room-1:#1E4466; --room-2:#5A2E24; --room-3:#2E4A22; --room-4:#3E3060; --room-5:#5A4020;
+    --desk:#C99A10; --figure:#EEF1F6; --screen-off:#3E4656;
+    --sky:#0E1A2E; --sea:#123A66; --waves:#4E86C6; --grass:#2E7A36; --water:#1E5C9E; --rock:#6E7480; --snow:#DDE4EE; --wood:#5E3418; --leaf:#146A2E; --leafLight:#5E9A2A; --leafDeep:#0A4A20; --grassHill:#286E30; --road:#9A8458; --night:1;
     color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#1E1710; --surface:#2A2016; --raised:#33281C; --ink:#EEDFC0; --muted:#B39C78; --line:#5A4630;
-  --accent:#D8694E;
-  --s-trabajando:#E0A63A; --s-esperando:#B98AB9; --s-halt:#E0533F; --s-listo:#9DBA5A; --s-inactivo:#7A6A52;
-  --room-0:#3A2E20; --room-1:#34301E; --room-2:#3E2C1E; --room-3:#352A2C; --room-4:#2E3020; --room-5:#3A2A22;
-  --desk:#3E3020; --figure:#D8C8A8; --screen-off:#4A3C2A;
-  --sky:#1E1710; --sea:#1C3A4C; --waves:#4E86A6; --grass:#4A4A2A; --water:#2A5C76; --rock:#5E5240; --snow:#CFC2A4; --wood:#5A3A20; --leaf:#3A4422; --leafLight:#5A6430; --leafDeep:#262E16; --grassHill:#545430; --road:#6A5434; --night:1;
+  --bg:#12151C; --surface:#1C2029; --raised:#252A35; --ink:#EEF1F6; --muted:#A3AABA; --line:#384050;
+  --accent:#FF5A4A;
+  --s-trabajando:#FFC233; --s-esperando:#5C9BFF; --s-halt:#FF5A4A; --s-listo:#4CC468; --s-inactivo:#6E7686;
+  --room-0:#5A4A12; --room-1:#1E4466; --room-2:#5A2E24; --room-3:#2E4A22; --room-4:#3E3060; --room-5:#5A4020;
+  --desk:#C99A10; --figure:#EEF1F6; --screen-off:#3E4656;
+  --sky:#0E1A2E; --sea:#123A66; --waves:#4E86C6; --grass:#2E7A36; --water:#1E5C9E; --rock:#6E7480; --snow:#DDE4EE; --wood:#5E3418; --leaf:#146A2E; --leafLight:#5E9A2A; --leafDeep:#0A4A20; --grassHill:#286E30; --road:#9A8458; --night:1;
   color-scheme:dark;
 }
 *{box-sizing:border-box}
@@ -55,9 +61,9 @@ body{
 .lbl[data-sel="1"]{border-color:var(--accent); box-shadow:0 0 0 2px color-mix(in srgb, var(--accent) 35%, transparent)}
 .lbl .dot{width:7px;height:7px;border-radius:50%;flex:none}
 .dragon-lbl{flex-direction:column; align-items:flex-start; gap:1px; border-color:#D8B24A; background:color-mix(in srgb, #C8402E 22%, var(--raised))}
-.dragon-lbl b{font:400 15px/1 var(--font-elvish); color:var(--ink)} .dragon-lbl small{font:400 10px var(--font-mono); color:var(--muted)}
+.dragon-lbl b{font:600 15px/1 var(--font-title); color:var(--ink)} .dragon-lbl small{font:400 10px var(--font-mono); color:var(--muted)}
 .room-lbl{position:absolute; transform:translate(0,-100%); pointer-events:none; white-space:nowrap;
-  font:400 15px/1.1 var(--font-elvish); color:var(--ink); text-shadow:0 0 3px var(--bg),0 0 6px var(--bg)}
+  font:600 15px/1.1 var(--font-title); color:var(--ink); text-shadow:0 0 3px var(--bg),0 0 6px var(--bg)}
 body.lejos .room-lbl small{display:none}
 /* the genie: in the overview, labels of agents at rest appear and vanish in turns */
 @keyframes genio{0%{opacity:0; transform:translate(-50%,-70%) scale(.55)} 6%,34%{opacity:1; transform:translate(-50%,-100%) scale(1)} 44%,100%{opacity:0; transform:translate(-50%,-85%) scale(.7)}}
@@ -67,7 +73,7 @@ body.lejos .room-lbl small{display:none}
 .room-lbl small{display:block; text-shadow:none; margin-top:2px; font:400 10px/1.3 var(--font-mono); color:var(--muted); letter-spacing:.02em}
 .phase-lbl{position:absolute; transform:translate(0,-50%); pointer-events:none; white-space:nowrap;
   font:500 10px/1 var(--font-mono); color:var(--muted); text-transform:uppercase; letter-spacing:.08em}
-.legend{position:absolute; left:12px; bottom:12px; display:flex; flex-wrap:wrap; gap:6px 12px; max-width:calc(100% - 24px);
+.legend{position:absolute; left:12px; top:62px; display:flex; flex-wrap:wrap; gap:6px 12px; max-width:calc(100% - 24px);
   background:color-mix(in srgb, var(--surface) 88%, transparent); border:1px solid var(--line); border-radius:8px; padding:6px 10px;
   font:400 11px/1.2 var(--font-mono); color:var(--muted)}
 .legend span{display:flex; align-items:center; gap:5px}
@@ -113,9 +119,9 @@ body.lejos .room-lbl small{display:none}
 .navb{width:38px; height:38px; border-radius:10px; border:1px solid var(--line); background:color-mix(in srgb, var(--raised) 94%, transparent); color:var(--ink);
   font:500 18px/1 var(--font-body); cursor:pointer; box-shadow:0 2px 6px rgb(0 0 0 / .18)}
 .navb:hover{border-color:var(--accent)} .navb:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
-.panel-btn{border:1px solid var(--line); border-radius:99px; padding:10px 16px; cursor:pointer; background:var(--raised); color:var(--ink);
-  font:400 14px/1 var(--font-elvish); box-shadow:0 3px 12px rgb(0 0 0 / .2)}
-.head h1{font:400 23px/1.15 var(--font-elvish); margin:0; text-wrap:balance}
+.panel-btn{border:0; border-radius:14px; padding:10px 16px 12px; cursor:pointer; background:var(--raised); color:var(--ink);
+  font:600 14px/1 var(--font-title); box-shadow:inset 0 -4px 0 rgb(0 0 0 / .22), 0 3px 10px rgb(0 0 0 / .22)}
+.head h1{font:600 23px/1.15 var(--font-title); margin:0; text-wrap:balance}
 .head p{margin:4px 0 0; color:var(--muted); font-size:12.5px}
 .live{display:inline-flex; align-items:center; gap:6px; margin-top:8px; font:500 11px/1 var(--font-mono); color:var(--muted); text-transform:uppercase; letter-spacing:.08em}
 .live i{width:8px;height:8px;border-radius:50%;background:var(--s-inactivo)}
@@ -155,7 +161,7 @@ button{font:inherit; color:inherit}
 .medal.oro{background:linear-gradient(135deg,#F6D774,#C9A43A)}
 .medal.plata{background:linear-gradient(135deg,#F2F4F6,#AEB6BE); color:#2A3038}
 .team-h{display:flex; align-items:baseline; gap:6px; width:100%; margin:10px 0 2px; padding:0 0 3px; background:none; border:0; border-bottom:1px solid var(--line);
-  font:400 15px/1.2 var(--font-elvish); color:var(--ink); text-align:left; cursor:pointer}
+  font:600 15px/1.2 var(--font-title); color:var(--ink); text-align:left; cursor:pointer}
 .team-h small{font:400 11px var(--font-mono); color:var(--muted)}
 .chev{display:inline-block; width:12px; flex:none; color:var(--muted); font-size:11px}
 .row.folder{cursor:pointer} .row-face{cursor:zoom-in}
@@ -190,55 +196,55 @@ button{font:inherit; color:inherit}
 .places{position:absolute; top:10px; left:10px; right:10px; display:flex; gap:6px; overflow-x:auto; padding-bottom:4px; scrollbar-width:thin}
 .place{flex:none; border:1px solid var(--line); background:color-mix(in srgb, var(--raised) 92%, transparent); color:var(--ink); border-radius:99px;
   padding:5px 12px; cursor:pointer; font:500 12px/1.15 var(--font-body); box-shadow:0 1px 2px rgb(0 0 0 / .1); text-align:left}
-.place b{display:block; font:400 13px/1.15 var(--font-elvish)}
+.place b{display:block; font:600 13px/1.15 var(--font-title)}
 .place small{display:block; font:400 10px/1.2 var(--font-mono); color:var(--muted); white-space:nowrap}
 .place:hover{border-color:var(--accent)}
 .pgroup{display:flex; gap:4px; align-items:stretch; flex:none; padding:3px; border-radius:99px; background:color-mix(in srgb, var(--team, transparent) 26%, transparent)}
 .place.realm{border:2px solid var(--team); font-weight:700}
 .place.realm b{font-size:14px}
 .place.sub{padding:4px 10px; border-left:6px solid var(--land, var(--line))} .place.sub b{font-size:12px}
-.maestro-fab{border:1px solid #6B4A12; border-radius:99px; padding:11px 18px; cursor:pointer; background:linear-gradient(135deg,#F2D27A,#C9952E); color:#2E2216;
-  font:400 15px/1 var(--font-elvish); box-shadow:0 3px 12px rgb(0 0 0 / .25)}
+.maestro-fab{border:0; border-radius:14px; padding:11px 18px 13px; cursor:pointer; background:#FFC72C; color:#1B1D24;
+  font:600 15px/1 var(--font-title); box-shadow:inset 0 -4px 0 rgb(0 0 0 / .22), 0 3px 10px rgb(0 0 0 / .22)}
 .maestro-fab:focus-visible{outline:2px solid var(--ink); outline-offset:2px}
-.maestrocall .tc-head{display:flex; gap:10px; align-items:center} .maestrocall h3{margin:0; font:400 18px/1.2 var(--font-elvish)}
+.maestrocall .tc-head{display:flex; gap:10px; align-items:center} .maestrocall h3{margin:0; font:600 18px/1.2 var(--font-title)}
 .maestrocall .tabs{margin:0} .tab.chief{display:inline-flex; align-items:center; gap:5px; padding:3px 9px 3px 3px}
 .tab.chief.on,.tab.on{background:var(--ink); color:var(--surface); border-color:var(--ink)}
 .maestrocall .msgs{max-height:300px} .maestrocall textarea{flex:1; min-width:0; font:inherit; font-size:13px; color:var(--ink); background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:7px 9px; resize:vertical}
 .maestrocall .c-actions{align-items:flex-end}
-.ring-lbl{position:absolute; transform:translate(0,-50%); max-width:260px; overflow:hidden; text-overflow:ellipsis; pointer-events:none; white-space:nowrap; background:#1E120E; color:#FFE6C8;
+.ring-lbl{position:absolute; transform:translate(0,-50%); max-width:260px; overflow:hidden; text-overflow:ellipsis; pointer-events:none; white-space:nowrap; background:#1B1D24; color:#FFFFFF;
   border:1px solid var(--rc, #E8B84A); border-radius:8px; padding:3px 8px; box-shadow:0 0 10px color-mix(in srgb, var(--rc, #E8B84A) 45%, transparent); font:400 12px/1.25 var(--font-body)}
-.ring-lbl b{display:block; font:400 13px/1.2 var(--font-elvish); color:var(--rc, #E8B84A)} .ring-lbl small{font:400 10.5px var(--font-mono); color:#E8CBA8}
+.ring-lbl b{display:block; font:600 13px/1.2 var(--font-title); color:var(--rc, #E8B84A)} .ring-lbl small{font:400 10.5px var(--font-mono); color:#E8CBA8}
 .tooltip{position:absolute; z-index:9; max-width:min(280px, calc(100% - 16px)); pointer-events:none; background:var(--raised); color:var(--ink);
   border:1px solid var(--line); border-radius:10px; padding:7px 10px; font:400 13px/1.35 var(--font-body); box-shadow:0 4px 14px rgb(0 0 0 / .22)}
 .tooltip::after{content:""; position:absolute; left:50%; bottom:-6px; width:10px; height:10px; background:var(--raised); border-right:1px solid var(--line); border-bottom:1px solid var(--line); transform:translateX(-50%) rotate(45deg)}
 .tooltip[data-below="1"]::after{bottom:auto; top:-6px; transform:translateX(-50%) rotate(225deg)}
-.toast{position:absolute; z-index:7; left:50%; top:66px; transform:translateX(-50%); background:#3A1E2E; color:#FFE3F0; border:1px solid #C8402E; border-radius:99px; padding:9px 16px; font:400 14px/1.2 var(--font-elvish); box-shadow:0 6px 20px rgb(0 0 0 / .3); max-width:calc(100% - 24px); text-align:center}
-.ceniza-chip{border-color:#7A2A1A; background:color-mix(in srgb, #3A1A12 30%, var(--raised))} .ceniza-chip b{color:#B8401E}
+.toast{position:absolute; z-index:7; left:50%; top:66px; transform:translateX(-50%); background:#1B1D24; color:#FFFFFF; border:2px solid #FFC72C; border-radius:99px; padding:9px 16px; font:600 14px/1.2 var(--font-title); box-shadow:0 6px 20px rgb(0 0 0 / .3); max-width:calc(100% - 24px); text-align:center}
+.ceniza-chip{border-color:#F57C1F; background:color-mix(in srgb, #F57C1F 18%, var(--raised))} .ceniza-chip b{color:#C4500E}
 .dragon-chip{border-color:#D8B24A; background:color-mix(in srgb, #C8402E 26%, var(--raised))} .place:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
 .bubble{position:absolute; transform:translate(-50%,-100%); width:max-content; max-width:180px; pointer-events:auto; cursor:pointer;
   background:var(--raised); color:var(--ink); border:1px solid var(--line); border-radius:12px; padding:6px 9px; font:400 11.5px/1.35 var(--font-body);
   box-shadow:0 2px 8px rgb(0 0 0 / .15)}
 .bubble::after{content:""; position:absolute; left:50%; bottom:-6px; width:10px; height:10px; background:var(--raised); border-right:1px solid var(--line); border-bottom:1px solid var(--line); transform:translateX(-50%) rotate(45deg)}
-.bubble b{display:block; font:400 13px/1.2 var(--font-elvish); margin-bottom:2px}
+.bubble b{display:block; font:600 13px/1.2 var(--font-title); margin-bottom:2px}
 .bubble span:empty{display:none}
-.council-fab{position:static; z-index:3; border:0; border-radius:99px; padding:11px 18px; cursor:pointer;
-  background:var(--accent); color:var(--raised); font:400 15px/1 var(--font-elvish); letter-spacing:.02em; box-shadow:0 3px 12px rgb(0 0 0 / .25)}
+.council-fab{position:static; z-index:3; border:0; border-radius:14px; padding:11px 18px 13px; cursor:pointer;
+  background:#D62B20; color:#FFFFFF; font:600 15px/1 var(--font-title); letter-spacing:.02em; box-shadow:inset 0 -4px 0 rgb(0 0 0 / .22), 0 3px 10px rgb(0 0 0 / .22)}
 .council-fab:focus-visible,.eye-fab:focus-visible{outline:2px solid var(--ink); outline-offset:2px}
-.eye-fab{position:static; z-index:3; border:1px solid #5A1E10; border-radius:99px; padding:9px 15px; cursor:pointer;
-  background:#2A1410; color:#FFB36B; font:400 13.5px/1 var(--font-elvish); box-shadow:0 3px 12px rgb(0 0 0 / .25)}
+.eye-fab{position:static; z-index:3; border:0; border-radius:14px; padding:10px 15px 12px; cursor:pointer;
+  background:#F57C1F; color:#FFFFFF; font:600 13.5px/1 var(--font-title); box-shadow:inset 0 -4px 0 rgb(0 0 0 / .22), 0 3px 10px rgb(0 0 0 / .22)}
 .ojo{left:10px; right:auto}
 @media (max-width: 820px){ .concilio{right:10px} }
-.book-fab{position:static; z-index:3; border:1px solid #6E1E1A; border-radius:99px; padding:9px 15px; cursor:pointer;
-  background:#8E2A22; color:#F6E7C8; font:400 13.5px/1 var(--font-elvish); box-shadow:0 3px 12px rgb(0 0 0 / .25)}
+.book-fab{position:static; z-index:3; border:0; border-radius:14px; padding:10px 15px 12px; cursor:pointer;
+  background:#1F62D0; color:#FFFFFF; font:600 13.5px/1 var(--font-title); box-shadow:inset 0 -4px 0 rgb(0 0 0 / .22), 0 3px 10px rgb(0 0 0 / .22)}
 .book-fab:focus-visible{outline:2px solid var(--ink); outline-offset:2px}
-.act-fab{position:static; z-index:3; border:1px solid #22361C; border-radius:99px; padding:9px 15px; cursor:pointer;
-  background:#3E5A2E; color:#EEF0D8; font:400 13.5px/1 var(--font-elvish); box-shadow:0 3px 12px rgb(0 0 0 / .25)}
+.act-fab{position:static; z-index:3; border:0; border-radius:14px; padding:10px 15px 12px; cursor:pointer;
+  background:#22943E; color:#FFFFFF; font:600 13.5px/1 var(--font-title); box-shadow:inset 0 -4px 0 rgb(0 0 0 / .22), 0 3px 10px rgb(0 0 0 / .22)}
 .act-fab:focus-visible{outline:2px solid var(--ink); outline-offset:2px}
 .act-sum{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px}
 .act-sum div{border:1px solid var(--line); border-radius:8px; padding:6px 8px; background:var(--surface)}
 .act-sum b{display:block; font:700 17px/1.1 var(--font-display); font-variant-numeric:tabular-nums}
 .act-sum small{font:400 10.5px var(--font-mono); color:var(--muted)}
-.act-h{margin:6px 0 0; font:400 15px/1.2 var(--font-elvish); text-transform:capitalize}
+.act-h{margin:6px 0 0; font:600 15px/1.2 var(--font-title); text-transform:capitalize}
 .act-h small{font:400 10.5px var(--font-mono); color:var(--muted); text-transform:none; margin-left:6px}
 .act-list{display:flex; flex-direction:column}
 .act-row{display:grid; grid-template-columns:3px minmax(0,1fr) auto; gap:8px; align-items:start; padding:6px 0; border-bottom:1px solid var(--line)}
@@ -256,7 +262,7 @@ button{font:inherit; color:inherit}
 .book-proj{border:1px solid var(--line); border-radius:8px; padding:6px 8px; background:var(--surface)}
 .book-proj b{display:block; font-size:12.5px} .book-proj small{color:var(--muted); font:400 10.5px var(--font-mono)}
 .book-list{display:flex; flex-direction:column; gap:6px}
-.book-month{margin:8px 0 0; font:400 15px/1.2 var(--font-elvish); text-transform:capitalize}
+.book-month{margin:8px 0 0; font:600 15px/1.2 var(--font-title); text-transform:capitalize}
 .book-day{margin:2px 0 0; font:500 11px var(--font-mono); color:var(--muted); text-transform:capitalize}
 .book-row{display:grid; grid-template-columns:3px minmax(0,1fr); gap:8px}
 .book-row .bar{border-radius:2px} .book-row .meta{font:400 10.5px/1.3 var(--font-mono); color:var(--muted)}
@@ -275,7 +281,7 @@ button{font:inherit; color:inherit}
 .proj.quieto{opacity:.82}
 .eye-tipos .tab{font-size:11px; padding:2px 8px}
 .pform{display:flex; flex-direction:column; gap:8px}
-.pform h4{margin:0; font:400 16px/1.2 var(--font-elvish)}
+.pform h4{margin:0; font:600 16px/1.2 var(--font-title)}
 .pf-row{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:8px}
 .pf-field{display:flex; flex-direction:column; gap:3px; min-width:0}
 .pf-field span{font:400 11.5px var(--font-mono); color:var(--muted)}
@@ -296,7 +302,7 @@ button{font:inherit; color:inherit}
   display:flex; flex-direction:column; gap:8px; background:var(--raised); border:1px solid var(--line); border-radius:12px; padding:12px; box-shadow:0 6px 24px rgb(0 0 0 / .22)}
 .concilio .top{display:flex; justify-content:space-between; gap:8px; align-items:center}
 .concilio .desc{margin:0; font-size:12.5px; color:var(--muted)}
-.concilio h3{font:400 18px/1.2 var(--font-elvish)}
+.concilio h3{font:600 18px/1.2 var(--font-title)}
 .c-groups{display:flex; flex-direction:column; gap:4px; max-height:220px; overflow:auto; border:1px solid var(--line); border-radius:8px; padding:6px 8px; background:var(--surface)}
 .c-groups summary{cursor:pointer; font-size:12.5px; font-weight:600; padding:3px 0}
 .c-pick{display:grid; grid-template-columns:auto auto minmax(0,1fr); gap:6px; align-items:center; padding:3px 0 3px 4px; font-size:12.5px; cursor:pointer}
@@ -381,6 +387,17 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
   .places{top:6px; left:6px; right:6px}
   .concilio,#concilio,#maestrocall{top:56px; max-height:calc(100% - 130px)}
 }
+.dedica{margin:auto 0 0; padding-top:10px; border-top:1px solid var(--line); font-size:11.5px; color:var(--muted)} .dedica a{color:inherit}
+/* the demo notice: a small yellow brick above the toolbar */
+.demo-banner{position:absolute; z-index:5; left:50%; bottom:72px; transform:translateX(-50%); display:flex; align-items:center; gap:10px; max-width:calc(100% - 24px);
+  background:#FFC72C; color:#1B1D24; border-radius:14px; padding:7px 8px 9px 14px; font:600 13px/1.25 var(--font-body);
+  box-shadow:inset 0 -4px 0 rgb(0 0 0 / .18), 0 3px 10px rgb(0 0 0 / .2)}
+.demo-banner b{font:700 14px/1 var(--font-title); text-transform:uppercase; letter-spacing:.04em}
+.demo-banner button{flex:none; border:0; border-radius:10px; padding:7px 12px 9px; cursor:pointer; background:#1B1D24; color:#FFFFFF; font:600 13px/1 var(--font-title);
+  box-shadow:inset 0 -3px 0 rgb(255 255 255 / .15)}
+.demo-banner button:focus-visible{outline:2px solid #1B1D24; outline-offset:2px}
+@media (max-width: 900px){ .demo-banner{bottom:150px} }
+@media (max-width: 600px){ .demo-banner{bottom:58px; left:8px; right:8px; transform:none; max-width:none; justify-content:space-between} .demo-banner span{display:none} }
 @media (prefers-reduced-motion: reduce){ .live i{box-shadow:none} .lbl[data-st="trabajando"]{animation:none} .lbl.genio{display:none} }
 </style>
 
@@ -400,6 +417,7 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
       <button class="panel-btn" type="button" id="btn-panel" data-tip="Abre el cajón con la lista de agentes por jerarquía (Gran Maestro, coordinadores, líderes y agentes), sus estados y la bitácora reciente." aria-controls="panel" aria-expanded="false">Agentes y bitácora</button>
     </div>
     <div class="navpad" id="navpad" aria-label="Moverse por el mapa"></div>
+    <div class="demo-banner" id="demo-banner" hidden><b>Demo</b><span>Estos agentes trabajan solos para que veas cómo se ve.</span><button type="button" id="btn-mi-mundo">Crear mi mundo</button></div>
     <div class="toast" id="toast" role="status" hidden></div>
     <div class="tooltip" id="tooltip" role="tooltip" hidden></div>
     <div class="concilio ojo" id="libro" hidden></div>
@@ -433,13 +451,16 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
     <div id="mundo-sec" hidden>
       <h2>El mundo</h2>
       <p class="empty">Los cambios se guardan en este navegador. Descarga el mundo y reemplaza <code>data/mundo.json</code> para conservarlos o compartirlos.</p>
-      <div class="c-actions mundo-actions"><button class="tab" type="button" id="btn-exportar">Descargar mundo.json</button><button class="tab" type="button" id="btn-restablecer">Volver a data/mundo.json</button></div>
+      <div class="c-actions mundo-actions"><button class="tab" type="button" id="btn-exportar">Descargar mundo.json</button><button class="tab" type="button" id="btn-restablecer">Volver a data/mundo.json</button><button class="tab" type="button" id="btn-ver-demo">Ver la demo</button></div>
     </div>
+    <p class="dedica">Inspirado en las sagas de fantasía clásicas, con un guiño a J.R.R. Tolkien. Proyecto de fans sin relación con el Tolkien Estate ni con ninguna marca de juguetes. <a href="https://github.com/unadani/tierra-de-agentes" target="_blank" rel="noopener">Código abierto (MIT)</a>.</p>
   </aside>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/controls/OrbitControls.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/utils/BufferGeometryUtils.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/environments/RoomEnvironment.js"></script>
 <script>
 (() => {
   const ESTADOS = {
@@ -507,6 +528,12 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
   const sun = new THREE.DirectionalLight(0xffffff, 0.75);
   sun.castShadow = true; sun.shadow.mapSize.set(2048, 2048); sun.shadow.bias = -0.0008;
   scene.add(sun, sun.target);
+  // a soft studio around the scene, so the plastic gets its glossy highlights
+  if (THREE.RoomEnvironment) {
+    const pmrem = new THREE.PMREMGenerator(renderer);
+    scene.environment = pmrem.fromScene(new THREE.RoomEnvironment(), 0.02).texture;
+    pmrem.dispose();
+  }
 
   const torsoGeo = new THREE.CylinderGeometry(0.25, 0.31, 0.4, 4, 1); torsoGeo.rotateY(Math.PI / 4); torsoGeo.scale(1, 1, 0.55);
   const G = {
@@ -522,10 +549,9 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
     torso: torsoGeo,
     hip: new THREE.BoxGeometry(0.38, 0.07, 0.2),
     arm: new THREE.CylinderGeometry(0.055, 0.06, 0.3, 12),
-    hand: new THREE.CylinderGeometry(0.05, 0.05, 0.07, 12),
+    hand: new THREE.SphereGeometry(0.058, 12, 10),
     neck: new THREE.CylinderGeometry(0.07, 0.07, 0.05, 12),
-    head: new THREE.CylinderGeometry(0.135, 0.135, 0.26, 20),
-    headStud: new THREE.CylinderGeometry(0.07, 0.07, 0.05, 14),
+    head: new THREE.CapsuleGeometry(0.135, 0.03, 8, 22).scale(1, 0.86, 1),
     eye: new THREE.SphereGeometry(0.022, 8, 6),
     bigEye: new THREE.SphereGeometry(0.048, 12, 10),
     mouth: new THREE.BoxGeometry(0.08, 0.014, 0.01),
@@ -564,15 +590,15 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
   const plastic = new Map();
   const P = hex => {
     const key = String(hex || "#888888").toLowerCase();
-    if (!plastic.has(key)) plastic.set(key, new THREE.MeshStandardMaterial({ color: key, roughness: 0.32, metalness: 0.02 }));
+    if (!plastic.has(key)) plastic.set(key, new THREE.MeshStandardMaterial({ color: key, roughness: 0.22, metalness: 0, envMapIntensity: 0.3 }));
     return plastic.get(key);
   };
   const METAL = new THREE.MeshStandardMaterial({ color: "#B9C0C7", roughness: 0.25, metalness: 0.6 });
   const GOLD = new THREE.MeshStandardMaterial({ color: "#D8B24A", roughness: 0.25, metalness: 0.7 });
   function applyThemeToScene() {
     scene.background = new THREE.Color(T.sea);
-    hemi.intensity = T.night ? 0.5 : 0.8; hemi.color.set(T.night ? "#E8C89A" : "#FFF4E0"); hemi.groundColor.set(T.night ? "#3A2A1A" : "#8A7A5A");
-    sun.intensity = T.night ? 0.45 : 0.8; sun.color.set(T.night ? "#F0B878" : "#FFEFD2");
+    hemi.intensity = T.night ? 0.3 : 0.4; hemi.color.set(T.night ? "#C8D4FF" : "#FFFFFF"); hemi.groundColor.set(T.night ? "#1A2234" : "#7A8A9A");
+    sun.intensity = T.night ? 0.45 : 0.9; sun.color.set(T.night ? "#B8C8FF" : "#FFF6E8");
     if (layoutSig) { layoutSig = ""; onData(); } // rebuild so landscape colours follow the theme
     M.desk.color.set(T.desk); M.frame.color.set(T.ink); M.wall.color.set(T.line);
     M.link.color.set(T.accent); M.packet.color.set(T.accent);
@@ -762,7 +788,7 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
   }
 
   // ---------- surroundings ----------
-  // the sea as an old map draws it: parchment with little inked waves
+  // the sea: a blue plastic plate with little white waves
   let seaMat = null, seaKey = "";
   function seaMaterial() {
     const key = T.sea + T.waves;
@@ -780,32 +806,55 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
     }
     const tex = new THREE.CanvasTexture(c); tex.wrapS = tex.wrapT = THREE.RepeatWrapping; tex.repeat.set(220, 220);
     if (seaMat) { seaMat.map && seaMat.map.dispose(); seaMat.dispose(); }
-    seaMat = new THREE.MeshStandardMaterial({ map: tex, roughness: 1 }); seaKey = key;
+    seaMat = new THREE.MeshStandardMaterial({ map: tex, roughness: 0.35, envMapIntensity: 0.4 }); seaKey = key;
     return seaMat;
+  }
+  let studTex = null;
+  function baseplate(hex, w, d) {
+    if (!studTex) {
+      const c = document.createElement("canvas"); c.width = c.height = 64;
+      const x = c.getContext("2d");
+      x.fillStyle = "#FFFFFF"; x.fillRect(0, 0, 64, 64);
+      x.fillStyle = "rgba(0,0,0,0.22)"; x.beginPath(); x.arc(35, 35, 20, 0, Math.PI * 2); x.fill();
+      const gr = x.createLinearGradient(14, 14, 50, 50); gr.addColorStop(0, "#FFFFFF"); gr.addColorStop(1, "#C9C9C9");
+      x.fillStyle = gr; x.beginPath(); x.arc(32, 32, 19, 0, Math.PI * 2); x.fill();
+      x.strokeStyle = "rgba(255,255,255,0.9)"; x.lineWidth = 3; x.beginPath(); x.arc(32, 32, 16, Math.PI * 0.95, Math.PI * 1.6); x.stroke();
+      studTex = new THREE.CanvasTexture(c); studTex.wrapS = studTex.wrapT = THREE.RepeatWrapping;
+      studTex.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
+    }
+    const t = studTex.clone(); t.needsUpdate = true; t.repeat.set(w / PITCH, d / PITCH);
+    return new THREE.MeshStandardMaterial({ color: hex, map: t, roughness: 0.3, envMapIntensity: 0.4 });
   }
   function rng(seed) { let s = seed >>> 0; return () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296); }
   function tree(x, z, kind, rand, scale = 1, leafHex) {
     const g = new THREE.Group(); g.position.set(x, -0.1, z); g.scale.setScalar(scale * (0.8 + rand() * 0.5));
-    const trunk = add(g, new THREE.BoxGeometry(0.22, 0.7, 0.22), P(T.wood), 0, 0.35, 0);
-    const leaf = P(leafHex || T.leaf);
+    const trunk = add(g, new THREE.BoxGeometry(0.24, 0.7, 0.24), P(T.wood), 0, 0.35, 0);
+    const leaf = P(leafHex || T.leaf), o = { studs: true };
     if (kind === "pino") {
-      add(g, new THREE.ConeGeometry(0.75, 1.1, 6), leaf, 0, 1.05, 0);
-      add(g, new THREE.ConeGeometry(0.55, 0.9, 6), leaf, 0, 1.6, 0);
+      // a stepped pine: three plates, smaller on the way up
+      add(g, new THREE.BoxGeometry(1.4, 0.36, 1.4), leaf, 0, 0.8, 0, o);
+      add(g, new THREE.BoxGeometry(1.0, 0.36, 1.0), leaf, 0, 1.16, 0, o);
+      add(g, new THREE.BoxGeometry(0.6, 0.36, 0.6), leaf, 0, 1.52, 0, o);
     } else if (kind === "abedul") {
-      trunk.material = P("#E8E4DA");
-      add(g, new THREE.BoxGeometry(0.9, 0.7, 0.9), P(T.leafLight), 0, 1.0, 0);
-      add(g, new THREE.BoxGeometry(0.6, 0.5, 0.6), P(T.leafLight), 0, 1.55, 0);
+      trunk.material = P("#F4F4F0");
+      add(g, new THREE.BoxGeometry(0.9, 0.7, 0.9), P(T.leafLight), 0, 1.0, 0, o);
+      add(g, new THREE.BoxGeometry(0.6, 0.5, 0.6), P(T.leafLight), 0, 1.55, 0, o);
     } else {
-      add(g, new THREE.BoxGeometry(1.1, 0.8, 1.1), leaf, 0, 1.05, 0);
-      add(g, new THREE.BoxGeometry(0.75, 0.55, 0.75), leaf, 0, 1.7, 0);
+      add(g, new THREE.BoxGeometry(1.2, 0.8, 1.2), leaf, 0, 1.05, 0, o);
+      add(g, new THREE.BoxGeometry(0.8, 0.55, 0.8), leaf, 0, 1.7, 0, o);
     }
     world.add(g); return g;
   }
-  function mountain(x, z, h, r, rand, snow = true) {
-    const m = add(world, new THREE.ConeGeometry(r, h, 6), P(T.rock), x, h / 2 - 0.1, z, { ry: rand() * Math.PI });
-    m.receiveShadow = true;
-    if (snow) add(world, new THREE.ConeGeometry(r * 0.34, h * 0.34, 6), P(T.snow), x, h - 0.1 - h * 0.17 + 0.02, z, { ry: m.rotation.y });
-    return m;
+  function mountain(x, z, h, r, rand, snow = true, rockHex) {
+    const n = Math.max(3, Math.round(h / 1.1)), lh = h / n, ry = rand() * Math.PI / 2;
+    let first = null;
+    for (let i = 0; i < n; i++) {
+      const k = 1 - i / n, w = Math.max(0.6, 2 * r * k);
+      const top = snow && i === n - 1;
+      const m = add(world, new THREE.BoxGeometry(w, lh, w * (0.8 + rand() * 0.25)), P(top ? T.snow : (rockHex || T.rock)), x + (rand() - 0.5) * 0.3 * k, -0.1 + lh * (i + 0.5), z + (rand() - 0.5) * 0.3 * k, { ry });
+      m.receiveShadow = true; first = first || m;
+    }
+    return first;
   }
   function strip(x1, z1, x2, z2, width, mat, y) {
     const len = Math.hypot(x2 - x1, z2 - z1);
@@ -820,7 +869,7 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
     const free = (x, z, pad = 0) => ![...boxes, ...keep].some(([a, b, c, d]) => x > a - pad && x < c + pad && z > b - pad && z < d + pad);
     const minX = bounds.min.x - 14, maxX = bounds.max.x + 14, minZ = bounds.min.z - 14, maxZ = bounds.max.z + 10;
     const lairX = (bounds.min.x + bounds.max.x) / 2 + 6, lairZ = bounds.min.z - 7;
-    const ground = add(world, new THREE.BoxGeometry(maxX - minX, 0.3, maxZ - minZ), P(T.grass), (minX + maxX) / 2, -0.27, (minZ + maxZ) / 2, { shadow: false });
+    const ground = add(world, new THREE.BoxGeometry(maxX - minX, 0.3, maxZ - minZ), baseplate(T.grass, maxX - minX, maxZ - minZ), (minX + maxX) / 2, -0.27, (minZ + maxZ) / 2, { shadow: false });
     ground.receiveShadow = true;
     buildHoard(lairX, lairZ); keep.push([lairX - 5.5, lairZ - 5.5, lairX + 5.5, lairZ + 5.5]);
     add(world, new THREE.BoxGeometry(3000, 0.05, 3000), seaMaterial(), (minX + maxX) / 2, -0.3, (minZ + maxZ) / 2, { shadow: false }).receiveShadow = true;
@@ -832,7 +881,7 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
         const z = side === 0 ? minZ : side === 1 ? minZ + u * D : side === 2 ? maxZ : minZ + u * D;
         const r = 3 + cr() * 6;
         add(world, new THREE.CylinderGeometry(r, r + 0.6, 0.3, 10), P(T.grass), x + (cr() - 0.5) * 3, -0.27, z + (cr() - 0.5) * 3, { shadow: false }).receiveShadow = true;
-        if (cr() < 0.5) add(world, new THREE.CylinderGeometry(r + 0.9, r + 1.4, 0.06, 10), P("#E2D2A6"), x, -0.27, z, { shadow: false });
+        if (cr() < 0.5) add(world, new THREE.CylinderGeometry(r + 0.9, r + 1.4, 0.06, 10), P("#F2D99A"), x, -0.27, z, { shadow: false });
       }
     }
     worldBox.min.set(minX + 4, 0, minZ + 4); worldBox.max.set(maxX - 4, 0, maxZ - 4);
@@ -894,24 +943,26 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
     for (const r of zones) {
       const cx = r.cx, cz = r.cz;
       if (r.tipo === "prados") {
-        // a house under the hill with a round door, round windows and a garden
+        // a farmhouse of bricks: white walls, red roof, a blue door, yellow windows and a fence
         const hx = cx, hz = r.z0 - 3.6;
-        add(world, new THREE.SphereGeometry(3.4, 20, 12, 0, Math.PI * 2, 0, Math.PI / 2), P(T.grassHill), hx, -0.1, hz, { s: [1.2, 0.62, 1] });
-        add(world, new THREE.CylinderGeometry(0.62, 0.62, 0.12, 24), P("#8A4A2A"), hx, 0.62, hz + 3.1, { rx: Math.PI / 2 });
-        add(world, new THREE.SphereGeometry(0.07, 10, 8), GOLD, hx, 0.62, hz + 3.18);
-        add(world, new THREE.CylinderGeometry(0.34, 0.34, 0.1, 18), P("#F1D27A"), hx - 1.6, 0.85, hz + 2.75, { rx: Math.PI / 2 - 0.35 });
-        add(world, new THREE.CylinderGeometry(0.34, 0.34, 0.1, 18), P("#F1D27A"), hx + 1.6, 0.85, hz + 2.75, { rx: Math.PI / 2 - 0.35 });
-        add(world, new THREE.BoxGeometry(0.08, 0.9, 0.08), P(T.wood), hx + 0.3, 0.9, hz + 0.6); // chimney stub
+        add(world, new THREE.BoxGeometry(4.8, 2, 3.2), P("#F4F4F0"), hx, 0.9, hz);
+        const fr = new THREE.CylinderGeometry(2.1, 2.1, 5.2, 3, 1); fr.rotateZ(Math.PI / 2); fr.rotateX(-Math.PI / 2);
+        add(world, fr, P("#D62B20"), hx, 2.55, hz, { s: [1, 0.7, 1] });
+        add(world, new THREE.BoxGeometry(0.9, 1.3, 0.12), P("#1F62D0"), hx, 0.55, hz + 1.62);
+        for (const dx of [-1.6, 1.6]) add(world, new THREE.BoxGeometry(0.8, 0.6, 0.1), P("#FFD84A"), hx + dx, 1.1, hz + 1.62);
+        add(world, new THREE.BoxGeometry(0.5, 1.2, 0.5), P("#8A4B22"), hx + 1.4, 3.1, hz - 0.5); // chimney
         for (let i = -3; i <= 3; i++) add(world, new THREE.BoxGeometry(0.08, 0.35, 0.08), P("#F4F1E8"), hx + i * 0.5, 0.08, hz + 3.6);
         keep.push([hx - 4.5, hz - 3.6, hx + 4.5, hz + 3.8]);
         for (let i = 0; i < 8; i++) tree(r.x0 - 2 - rand() * 3, r.z0 + rand() * r.d, "redondo", rand);
       }
       if (r.tipo === "ciudad") {
-        // the white city: tiers and a tall tower, behind the square
+        // the castle: square brick terraces, a tall tower with a blue roof and a flag
         const mx = cx, mz = r.z0 - 6;
-        for (let i = 0; i < 6; i++) add(world, new THREE.CylinderGeometry(4.6 - i * 0.65, 4.8 - i * 0.65, 0.9, 24), P(i % 2 ? "#F2F0EA" : "#E2DFD6"), mx, 0.35 + i * 0.9, mz);
-        add(world, new THREE.CylinderGeometry(0.35, 0.4, 4, 12), P("#F7F6F1"), mx, 7.4, mz);
-        add(world, new THREE.ConeGeometry(0.45, 1, 12), P("#C9CED4"), mx, 9.9, mz);
+        for (let i = 0; i < 5; i++) add(world, new THREE.BoxGeometry(8.4 - i * 1.6, 1, 7.6 - i * 1.5), P(i % 2 ? "#F4F4F0" : "#C9CED6"), mx, 0.4 + i, mz);
+        add(world, new THREE.BoxGeometry(1, 3.4, 1), P("#F4F4F0"), mx, 6.6, mz);
+        add(world, new THREE.ConeGeometry(0.95, 1.4, 4), P("#1F62D0"), mx, 9, mz, { ry: Math.PI / 4 });
+        add(world, new THREE.BoxGeometry(0.04, 1.1, 0.04), P("#3A3F46"), mx, 10.2, mz);
+        add(world, new THREE.BoxGeometry(0.6, 0.36, 0.03), P("#D62B20"), mx + 0.3, 10.55, mz);
         keep.push([mx - 5.5, mz - 5.5, mx + 5.5, mz + 5]);
       }
       if (r.tipo === "puerto") {
@@ -920,15 +971,17 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
         add(world, new THREE.BoxGeometry(Math.max(1, px - seaEdge + 1.2), 0.14, 0.9), P(T.wood), (px + seaEdge - 1.2) / 2, 0.0, pz);
         const sx = seaEdge - 2.6;
         add(world, new THREE.BoxGeometry(3.6, 0.6, 1.2), P("#8A5A32"), sx, 0.2, pz); add(world, new THREE.BoxGeometry(3.7, 0.1, 1.3), P("#5A3A1E"), sx, 0.52, pz); for (let i = -1; i <= 1; i++) add(world, new THREE.BoxGeometry(0.06, 0.5, 1.22), P("#6E4626"), sx + i * 1.1, 0.2, pz);
-        add(world, new THREE.ConeGeometry(0.6, 1.2, 4), P("#7A4E2A"), sx - 2.3, 0.2, pz, { rz: Math.PI / 2, ry: Math.PI / 4 }); add(world, new THREE.TorusGeometry(0.32, 0.07, 6, 12, Math.PI * 1.2), P("#F4F1E6"), sx - 2.6, 0.75, pz, { ry: Math.PI / 2 });
+        add(world, new THREE.ConeGeometry(0.6, 1.2, 4), P("#7A4E2A"), sx - 2.3, 0.2, pz, { rz: Math.PI / 2, ry: Math.PI / 4 });
         add(world, new THREE.CylinderGeometry(0.05, 0.05, 2.6, 8), P(T.wood), sx, 1.75, pz);
-        add(world, new THREE.BoxGeometry(0.04, 1.5, 1.4), P("#FBFBF7"), sx + 0.12, 1.95, pz);
-        add(world, new THREE.CylinderGeometry(0.45, 0.6, 4.2, 14), P("#ECEBE6"), r.x0 + 0.8, 2, r.z0 - 2);
-        add(world, new THREE.ConeGeometry(0.6, 0.9, 14), P("#8A8478"), r.x0 + 0.8, 4.55, r.z0 - 2);
+        add(world, new THREE.BoxGeometry(0.04, 1.5, 1.4), P("#D62B20"), sx + 0.12, 1.95, pz);
+        // the lighthouse: red and white bricks, a yellow lamp
+        for (let i = 0; i < 5; i++) add(world, new THREE.BoxGeometry(1.1 - i * 0.08, 0.8, 1.1 - i * 0.08), P(i % 2 ? "#F4F4F0" : "#D62B20"), r.x0 + 0.8, 0.3 + i * 0.8, r.z0 - 2);
+        add(world, new THREE.BoxGeometry(0.7, 0.5, 0.7), new THREE.MeshBasicMaterial({ color: "#FFE066" }), r.x0 + 0.8, 4.35, r.z0 - 2);
+        add(world, new THREE.ConeGeometry(0.6, 0.6, 4), P("#1B1D24"), r.x0 + 0.8, 4.9, r.z0 - 2, { ry: Math.PI / 4 });
         keep.push([r.x0 - 0.5, r.z0 - 3.5, r.x0 + 2, r.z0 - 0.5]);
       }
       if (r.tipo === "atalaya") {
-        // the watchtower, with a seeing stone glowing at its top
+        // the watchtower, with a lamp glowing at its top
         const tx = cx, tz = r.z0 - 4.2;
         add(world, new THREE.CylinderGeometry(1.4, 3.6, 2.4, 8), P(T.grassHill), tx, 1.1, tz);
         add(world, new THREE.CylinderGeometry(0.8, 1, 3.2, 8), P("#9A958C"), tx, 3.9, tz);
@@ -956,7 +1009,7 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
       }
       if (r.tipo === "forja") {
         // the forge: a stone smithy with a glowing hearth and anvil,
-        // an old mountain gate with its silver arch and star, and holly trees
+        // a mine cart on its rails beside the forge, and dark green trees
         const fx = cx, fz = r.z0 - 4.4, stone = P("#C9C2B4"), slate = P("#5E6A7A"), fire = new THREE.MeshBasicMaterial({ color: "#FF8A2B" });
         add(world, new THREE.BoxGeometry(4.2, 1.6, 2.8), stone, fx, 0.7, fz);
         const roof = new THREE.CylinderGeometry(1.75, 1.75, 4.5, 3, 1); roof.rotateZ(Math.PI / 2); roof.rotateX(-Math.PI / 2);
@@ -975,16 +1028,14 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
         add(world, new THREE.BoxGeometry(0.04, 0.04, 0.34), P(T.wood), ax + 0.15, 0.78, az + 0.05, { ry: 0.5 });
         add(world, new THREE.BoxGeometry(0.12, 0.09, 0.09), METAL, ax + 0.24, 0.79, az + 0.17, { ry: 0.5 });
         add(world, new THREE.TorusGeometry(0.11, 0.025, 8, 18), GOLD, ax - 0.2, 0.75, az, { rx: Math.PI / 2 });
-        // the old mountain gate, beside the forge
-        const gx = r.x0 - 4.6, gz = r.z0 - 2.2, silver = new THREE.MeshBasicMaterial({ color: "#DDE3EE" });
-        add(world, new THREE.BoxGeometry(3.4, 3.6, 0.9), P("#6E6A66"), gx, 1.7, gz);
-        add(world, new THREE.BoxGeometry(0.08, 2.0, 0.05), silver, gx - 0.75, 1.15, gz + 0.47);
-        add(world, new THREE.BoxGeometry(0.08, 2.0, 0.05), silver, gx + 0.75, 1.15, gz + 0.47);
-        add(world, new THREE.TorusGeometry(0.75, 0.04, 8, 24, Math.PI), silver, gx, 2.15, gz + 0.47);
-        add(world, new THREE.OctahedronGeometry(0.16), silver, gx, 2.45, gz + 0.48);
-        add(world, new THREE.BoxGeometry(0.03, 1.3, 0.04), silver, gx, 1.25, gz + 0.47);
+        // the mine cart, full of gold bricks
+        const gx = r.x0 - 4.6, gz = r.z0 - 2.2;
+        strip(gx - 2, gz, gx + 2, gz, 0.6, P("#5B6170"), -0.08);
+        add(world, new THREE.BoxGeometry(1.2, 0.6, 0.8), P("#D62B20"), gx, 0.35, gz);
+        add(world, new THREE.BoxGeometry(1, 0.2, 0.6), GOLD, gx, 0.72, gz, { studs: false });
+        for (const dx of [-0.4, 0.4]) for (const dz of [-0.42, 0.42]) add(world, new THREE.CylinderGeometry(0.16, 0.16, 0.08, 14), P("#1B1D24"), gx + dx, 0.1, gz + dz, { rx: Math.PI / 2 });
         keep.push([fx - 2.8, fz - 2, fx + 2.8, az + 0.8], [gx - 2, gz - 1, gx + 2, gz + 1]);
-        // holly trees
+        // dark green trees
         for (let i = 0; i < 12; i++) {
           const ang = rand() * Math.PI * 2, rad = Math.max(r.w, r.d) / 2 + 1.4 + rand() * 3;
           const tx = cx + Math.cos(ang) * rad, tz = cz + Math.sin(ang) * rad;
@@ -1014,10 +1065,12 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
       const cx = r.cx, cz = r.cz, R2 = Math.max(r.w, r.d) / 2;
       const spot = (dx, dz, pad = 0.8) => { const x = cx + dx, z = cz + dz; return free(x, z, pad) && !nearRiver(x) && x > seaEdge + 1 ? [x, z] : null; };
       if (r.tipo === "prados") {
-        // más casas bajo las lomas, el gran árbol de las fiestas y el molino
+        // más casitas de bloques con techos de colores, el gran árbol del pueblo y el molino
         [[-r.w / 2 - 3.4, 1.6], [r.w / 2 + 3.2, -0.8], [r.w / 2 + 3.4, 3.2]].forEach(([dx, dz]) => { const p = spot(dx, dz, 1.4); if (!p) return;
-          add(world, new THREE.SphereGeometry(1.4, 16, 10, 0, Math.PI * 2, 0, Math.PI / 2), P(T.grassHill), p[0], -0.1, p[1], { s: [1.1, 0.6, 1] });
-          add(world, new THREE.CylinderGeometry(0.32, 0.32, 0.08, 18), P(["#B8533A", "#D8B24A", "#3A6E9A"][Math.floor(rand() * 3)]), p[0], 0.34, p[1] + 1.42, { rx: Math.PI / 2 }); keep.push([p[0] - 1.6, p[1] - 1.6, p[0] + 1.6, p[1] + 1.6]); });
+          add(world, new THREE.BoxGeometry(1.8, 1.1, 1.6), P("#F4F4F0"), p[0], 0.45, p[1]);
+          const cr2 = new THREE.CylinderGeometry(1, 1, 2.1, 4, 1); cr2.rotateY(Math.PI / 4);
+          add(world, cr2, P(["#D62B20", "#1F62D0", "#F7C21E"][Math.floor(rand() * 3)]), p[0], 1.45, p[1], { s: [1, 0.45, 0.85] });
+          add(world, new THREE.BoxGeometry(0.4, 0.6, 0.08), P("#8A4B22"), p[0], 0.2, p[1] + 0.82); keep.push([p[0] - 1.6, p[1] - 1.6, p[0] + 1.6, p[1] + 1.6]); });
         const pt = spot(-r.w / 2 - 2.2, -r.d / 2 - 1.2, 1.2); if (pt) { tree(pt[0], pt[1], "redondo", rand, 2.1, "#5E8A2E"); keep.push([pt[0] - 1.5, pt[1] - 1.5, pt[0] + 1.5, pt[1] + 1.5]); }
         const ml = spot(r.w / 2 + 2.6, -r.d / 2 - 2, 1.2); if (ml) { add(world, new THREE.BoxGeometry(1.1, 1.2, 1), P("#D8C8A0"), ml[0], 0.5, ml[1]); add(world, new THREE.ConeGeometry(0.85, 0.7, 4), P("#7A4A2A"), ml[0], 1.45, ml[1], { ry: Math.PI / 4 });
           add(world, new THREE.TorusGeometry(0.55, 0.07, 6, 16), P(T.wood), ml[0] + 0.62, 0.55, ml[1], { ry: Math.PI / 2 }); keep.push([ml[0] - 1.3, ml[1] - 1.1, ml[0] + 1.4, ml[1] + 1.1]); }
@@ -1032,29 +1085,30 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
         add(world, new THREE.TorusGeometry(1.1, 0.12, 8, 18, Math.PI), P("#F2EEE2"), cx + 1.6, 0, r.z0 - 0.4, { ry: Math.PI / 2 });
       }
       if (r.tipo === "ciudad") {
-        // un árbol blanco en el patio, estandartes en los muros y la gran puerta
+        // banderines de colores en los muros y la gran puerta
         const mx2 = cx, mz2 = r.z0 - 6;
-        add(world, new THREE.CylinderGeometry(0.08, 0.12, 1.1, 8), P("#F4F2EC"), mx2 + 0.9, 6.0, mz2 + 0.4);
-        add(world, new THREE.SphereGeometry(0.42, 12, 10), P("#FBFAF6"), mx2 + 0.9, 6.75, mz2 + 0.4, { s: [1.3, 0.8, 1.3] });
         for (let i = 0; i < 6; i++) { const a = -0.9 + i * 0.36; add(world, new THREE.BoxGeometry(0.05, 0.9, 0.05), P(T.wood), mx2 + Math.sin(a) * 4.7, 1.3, mz2 + Math.cos(a) * 4.7);
-          add(world, new THREE.BoxGeometry(0.04, 0.45, 0.32), P(i % 2 ? "#1E1E22" : "#F2F0EA"), mx2 + Math.sin(a) * 4.7, 1.55, mz2 + Math.cos(a) * 4.7 + 0.18); }
+          add(world, new THREE.BoxGeometry(0.04, 0.45, 0.32), P(["#D62B20", "#1F62D0", "#F7C21E"][i % 3]), mx2 + Math.sin(a) * 4.7, 1.55, mz2 + Math.cos(a) * 4.7 + 0.18); }
         add(world, new THREE.BoxGeometry(1.2, 1.1, 0.2), P("#2A2622"), mx2, 0.45, mz2 + 4.75);
       }
       if (r.tipo === "puerto") {
-        // más barcos blancos con proa de cisne, listos para zarpar
-        [[-3.6, -2.4], [-4.4, 2.6]].forEach(([dx, dz]) => { const sx = seaEdge + dx, sz = cz + dz;
-          add(world, new THREE.BoxGeometry(2.6, 0.45, 0.9), P("#8A5A32"), sx, 0.15, sz); add(world, new THREE.BoxGeometry(2.7, 0.08, 1.0), P("#5A3A1E"), sx, 0.4, sz);
-          add(world, new THREE.TorusGeometry(0.3, 0.06, 6, 12, Math.PI * 1.2), P("#FBFBF7"), sx - 1.5, 0.6, sz, { ry: Math.PI / 2 });
+        // más barquitos con velas de colores, listos para zarpar
+        [[-3.6, -2.4, "#F7C21E"], [-4.4, 2.6, "#1F62D0"]].forEach(([dx, dz, sail]) => { const sx = seaEdge + dx, sz = cz + dz;
+          add(world, new THREE.BoxGeometry(2.6, 0.45, 0.9), P("#F4F4F0"), sx, 0.15, sz); add(world, new THREE.BoxGeometry(2.7, 0.08, 1.0), P("#8A4B22"), sx, 0.4, sz);
           add(world, new THREE.CylinderGeometry(0.04, 0.04, 2, 8), P(T.wood), sx, 1.3, sz);
-          add(world, new THREE.BoxGeometry(0.03, 1.1, 1.0), P("#FBFBF7"), sx + 0.1, 1.45, sz); });
+          add(world, new THREE.BoxGeometry(0.03, 1.1, 1.0), P(sail), sx + 0.1, 1.45, sz); });
         const tw = spot(r.w / 2 + 2.4, -r.d / 2 - 1.4, 1); if (tw) { add(world, new THREE.CylinderGeometry(0.35, 0.5, 3.4, 12), P("#ECEBE6"), tw[0], 1.6, tw[1]); add(world, new THREE.ConeGeometry(0.5, 0.7, 12), P("#8A8478"), tw[0], 3.65, tw[1]); keep.push([tw[0] - 0.8, tw[1] - 0.8, tw[0] + 0.8, tw[1] + 0.8]); }
       }
       if (r.tipo === "hayedo") {
-        // la puerta de un salón bajo la colina, y telarañas entre los árboles
-        const g2 = spot(0, -r.d / 2 - 3.2, 1.5); if (g2) { add(world, new THREE.SphereGeometry(2.4, 16, 10, 0, Math.PI * 2, 0, Math.PI / 2), P("#3E5A2E"), g2[0], -0.1, g2[1], { s: [1.2, 0.75, 0.9] });
-          add(world, new THREE.BoxGeometry(1, 1.2, 0.2), P("#4A3A2A"), g2[0], 0.55, g2[1] + 2.05); add(world, new THREE.TorusGeometry(0.5, 0.06, 6, 16, Math.PI), P("#C8B88A"), g2[0], 1.15, g2[1] + 2.12);
-          keep.push([g2[0] - 2.8, g2[1] - 2.2, g2[0] + 2.8, g2[1] + 2.3]); }
-        for (let i = 0; i < 4; i++) { const p = spot((rand() - 0.5) * (r.w + 6), r.d / 2 + 1.5 + rand() * 2, 0.4); if (p) add(world, new THREE.TorusGeometry(0.35, 0.012, 4, 14), P("#F2F2EE"), p[0], 0.9, p[1], { rx: 0.2 }); }
+        // una casa en el árbol, con escalera y techo amarillo
+        const g2 = spot(0, -r.d / 2 - 3.2, 1.5); if (g2) {
+          add(world, new THREE.BoxGeometry(0.6, 2.6, 0.6), P(T.wood), g2[0], 1.2, g2[1]);
+          add(world, new THREE.BoxGeometry(2.4, 0.3, 2.4), P(T.wood), g2[0], 2.6, g2[1]);
+          add(world, new THREE.BoxGeometry(1.6, 1.1, 1.6), P("#1F62D0"), g2[0], 3.3, g2[1]);
+          add(world, new THREE.ConeGeometry(1.4, 0.9, 4), P("#F7C21E"), g2[0], 4.3, g2[1], { ry: Math.PI / 4 });
+          for (let i = 0; i < 6; i++) add(world, new THREE.BoxGeometry(0.5, 0.06, 0.06), P("#F4F4F0"), g2[0], 0.3 + i * 0.4, g2[1] + 1.25);
+          add(world, new THREE.BoxGeometry(2.4, 2.8, 2.4), P(T.leaf), g2[0], 5.4, g2[1], { studs: true });
+          keep.push([g2[0] - 2, g2[1] - 2, g2[0] + 2, g2[1] + 2]); }
       }
       if (r.tipo === "montana") {
         // una colina con su atalaya y unas ruinas al pie de la montaña
@@ -1069,12 +1123,13 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
           for (const [lx, lz] of [[0.25, 0.15], [-0.25, 0.15], [0.25, -0.15], [-0.25, -0.15]]) add(b, new THREE.BoxGeometry(0.12, 0.22, 0.12), P("#4A2E1A"), lx, 0.1, lz); world.add(b); });
       }
       if (r.tipo === "arboleda") {
-        // tres pastores de árboles caminando lento entre los troncos
+        // hongos gigantes de sombrero rojo con puntos blancos
         for (let i = 0; i < 3; i++) { const p = spot((i - 1) * 3.2, -r.d / 2 - 2.6 - (i % 2) * 1.4, 0.8); if (!p) continue;
-          add(world, new THREE.CylinderGeometry(0.28, 0.38, 2.6, 8), P("#5A4030"), p[0], 1.2, p[1]);
-          add(world, new THREE.SphereGeometry(0.75, 10, 8), P("#3E5A2A"), p[0], 2.9, p[1]);
-          for (const dx of [-0.11, 0.11]) add(world, new THREE.SphereGeometry(0.05, 8, 6), new THREE.MeshBasicMaterial({ color: "#C8E070" }), p[0] + dx, 2.1, p[1] + 0.3);
-          for (const sd of [-1, 1]) add(world, new THREE.CylinderGeometry(0.07, 0.1, 1.2, 6), P("#5A4030"), p[0] + sd * 0.45, 1.8, p[1], { rz: sd * 0.6 }); keep.push([p[0] - 1, p[1] - 1, p[0] + 1, p[1] + 1]); }
+          const k = 0.8 + (i % 2) * 0.4;
+          add(world, new THREE.CylinderGeometry(0.22 * k, 0.3 * k, 1.2 * k, 12), P("#F4F4F0"), p[0], 0.5 * k, p[1]);
+          add(world, new THREE.SphereGeometry(0.8 * k, 16, 10, 0, Math.PI * 2, 0, Math.PI / 2), P("#D62B20"), p[0], 1.05 * k, p[1]);
+          for (let j = 0; j < 5; j++) { const a = j / 5 * Math.PI * 2; add(world, new THREE.SphereGeometry(0.1 * k, 8, 6), P("#FFFFFF"), p[0] + Math.cos(a) * 0.5 * k, 1.05 * k + 0.55 * k, p[1] + Math.sin(a) * 0.5 * k, { shadow: false }); }
+          keep.push([p[0] - 1, p[1] - 1, p[0] + 1, p[1] + 1]); }
       }
       if (r.tipo === "atalaya") {
         // las piedras caídas de la vieja torre alrededor de la colina
@@ -1119,12 +1174,14 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
       }
     }
     if (Fa) {
-      // a black tower inside its ring wall
+      // a hot-air balloon, tied to the ground
       const ix = Fa.x0 - 8, iz = Fa.cz + 2;
       if (site(ix, iz, 2.5)) {
-        add(world, new THREE.TorusGeometry(2.6, 0.25, 6, 32), P("#4A4744"), ix, 0.1, iz, { rx: Math.PI / 2 });
-        add(world, new THREE.CylinderGeometry(0.5, 0.75, 5, 8), P("#1E1E22"), ix, 2.4, iz);
-        for (let i = 0; i < 4; i++) { const a = i / 4 * Math.PI * 2; add(world, new THREE.ConeGeometry(0.12, 0.8, 6), P("#1E1E22"), ix + Math.cos(a) * 0.38, 5.2, iz + Math.sin(a) * 0.38); }
+        add(world, new THREE.BoxGeometry(1, 0.7, 1), P("#8A4B22"), ix, 0.25, iz);
+        for (const [dx, dz] of [[-0.45, -0.45], [0.45, -0.45], [-0.45, 0.45], [0.45, 0.45]]) add(world, new THREE.BoxGeometry(0.03, 1.6, 0.03), P("#3A3F46"), ix + dx, 1.4, iz + dz, { shadow: false });
+        const bal = new THREE.Group(); bal.position.set(ix, 3.6, iz); world.add(bal);
+        ["#D62B20", "#F7C21E", "#1F62D0", "#F4F4F0", "#D62B20", "#F7C21E", "#1F62D0", "#F4F4F0"].forEach((c, i) =>
+          add(bal, new THREE.SphereGeometry(1.5, 16, 12, i * Math.PI / 4, Math.PI / 4), P(c), 0, 0, 0, { s: [1, 1.15, 1] }));
         keep.push([ix - 3, iz - 3, ix + 3, iz + 3]);
       }
     }
@@ -1135,7 +1192,7 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
         add(world, new THREE.CylinderGeometry(1.8, 3.2, 1.2, 10), P(T.grassHill), ex, 0.5, ez);
         add(world, new THREE.BoxGeometry(2, 0.8, 1.1), P(T.wood), ex, 1.5, ez);
         const rg = new THREE.CylinderGeometry(0.8, 0.8, 2.2, 3, 1); rg.rotateZ(Math.PI / 2); rg.rotateX(-Math.PI / 2);
-        add(world, rg, GOLD, ex, 2.3, ez);
+        add(world, rg, P("#D62B20"), ex, 2.3, ez);
         keep.push([ex - 3.4, ez - 3.4, ex + 3.4, ez + 3.4]);
       }
     }
@@ -1153,38 +1210,31 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
       }
     }
     if (Bo && Mi) {
-      // a grove of golden trees
+      // an orchard in autumn colours
       const gx = (Bo.cx + Mi.cx) / 2 - 7, gz = (Bo.cz + Mi.cz) / 2;
       if (site(gx, gz, 2)) {
-        for (let i = 0; i < 8; i++) { const a = i / 8 * Math.PI * 2; tree(gx + Math.cos(a) * 1.8 * (0.6 + rand() * 0.6), gz + Math.sin(a) * 1.8 * (0.6 + rand() * 0.6), "redondo", rand, 1.5, "#D9B44A"); }
+        for (let i = 0; i < 8; i++) { const a = i / 8 * Math.PI * 2; tree(gx + Math.cos(a) * 1.8 * (0.6 + rand() * 0.6), gz + Math.sin(a) * 1.8 * (0.6 + rand() * 0.6), "redondo", rand, 1.4, ["#F7C21E", "#F57C1F", "#D62B20"][i % 3]); }
         keep.push([gx - 3, gz - 3, gx + 3, gz + 3]);
       }
     }
     {
-      // the Ash Lands in the far south-east: a volcano and the Watcher's tower with its flame
-      const mx = zb.max.x + 9, mz = zb.max.z + 4, ash = P("#3A302B"), black = P("#1A1A1C"), lava = new THREE.MeshBasicMaterial({ color: "#FF5A1F" });
-      add(world, new THREE.CylinderGeometry(9.5, 10, 0.06, 28), ash, mx, -0.08, mz, { s: [1.25, 1, 1], shadow: false });
-      // un anillo de montañas oscuras, abierto al oeste por una puerta negra
+      // the volcano in the far south-east, and the Watcher's tower with its flame
+      const mx = zb.max.x + 9, mz = zb.max.z + 4, stone = P("#5B6170"), lava = new THREE.MeshBasicMaterial({ color: "#FF6A1F" });
+      add(world, new THREE.CylinderGeometry(9.5, 10, 0.06, 28), P("#8A8F99"), mx, -0.08, mz, { s: [1.25, 1, 1], shadow: false });
       const mr = rng(31);
-      for (let i = 0; i < 22; i++) { const a = -2.3 + i / 21 * 4.6; if (Math.abs(a) < 0.32) continue; const r2 = 10.5 + mr() * 1.2; const h2 = 3 + mr() * 2.6; add(world, new THREE.ConeGeometry(1.5 + mr() * 0.6, h2, 6), P("#2E2622"), mx - Math.cos(a) * r2 * 1.2, h2 / 2 - 0.1, mz - Math.sin(a) * r2, { ry: mr() * 3 }); }
-      // la puerta negra con sus dos torres
-      const gx2 = mx - 12.6, gz2 = mz;
-      add(world, new THREE.BoxGeometry(0.9, 2.2, 3.4), black, gx2, 1, gz2);
-      for (const dz of [-2.4, 2.4]) { add(world, new THREE.CylinderGeometry(0.55, 0.75, 4.2, 6), black, gx2, 2, gz2 + dz); add(world, new THREE.ConeGeometry(0.6, 0.9, 6), black, gx2, 4.5, gz2 + dz); }
-      // el volcán, con su cráter encendido y un río de lava
-      add(world, new THREE.ConeGeometry(3.8, 7, 9), P("#3B312C"), mx + 3, 3.4, mz + 2);
-      add(world, new THREE.ConeGeometry(0.85, 0.9, 9), lava, mx + 3, 6.6, mz + 2);
+      // el volcán de bloques, con su cráter encendido y un río de lava
+      mountain(mx + 3, mz + 2, 7, 3.8, mr, false, "#4A4F5A");
+      add(world, new THREE.BoxGeometry(1.4, 0.4, 1.4), lava, mx + 3, 7, mz + 2);
       strip(mx + 3, mz + 2.6, mx + 5.5, mz + 5.5, 0.35, lava, 0.02);
+      for (let i = 0; i < 7; i++) { const a = mr() * Math.PI * 2, r2 = 6 + mr() * 3; add(world, new THREE.BoxGeometry(0.8, 0.4 + mr() * 0.6, 0.8), stone, mx + Math.cos(a) * r2 * 1.2, 0.15, mz + Math.sin(a) * r2, { ry: mr() }); }
       const glow = new THREE.PointLight(0xFF6A2B, T.night ? 1.6 : 0.8, 16); glow.position.set(mx + 3, 7.5, mz + 2); world.add(glow);
-      // la torre del Vigía: pisos negros, almenas y una llama en lo alto
+      // la torre del Vigía: pisos de bloques amarillos y azules, almenas y una llama en lo alto
       const tx2 = mx - 4, tz2 = mz - 2.5;
-      [[1.8, 2.2, 1.6], [1.4, 1.7, 2.2], [1.0, 1.3, 2.4], [0.7, 0.95, 2.0]].reduce((y, [rt, rb, h]) => { add(world, new THREE.CylinderGeometry(rt, rb, h, 8), black, tx2, y + h / 2, tz2); return y + h; }, -0.1);
-      for (let i = 0; i < 8; i++) { const a = i / 8 * Math.PI * 2; add(world, new THREE.ConeGeometry(0.16, 0.7, 5), black, tx2 + Math.cos(a) * 1.6, 1.9, tz2 + Math.sin(a) * 1.6); }
-      add(world, new THREE.CylinderGeometry(0.8, 0.5, 0.45, 8), black, tx2, 8.2, tz2);
+      [[3.6, 1.6, "#F7C21E"], [2.8, 2.2, "#1F62D0"], [2.2, 2.4, "#F7C21E"], [1.6, 2.0, "#1F62D0"]].reduce((y, [w, h, c]) => { add(world, new THREE.BoxGeometry(w, h, w), P(c), tx2, y + h / 2, tz2); return y + h; }, -0.1);
+      for (let i = 0; i < 4; i++) { const a = i / 4 * Math.PI * 2 + Math.PI / 4; add(world, new THREE.BoxGeometry(0.5, 0.5, 0.5), P("#F4F4F0"), tx2 + Math.cos(a) * 1.3, 1.75, tz2 + Math.sin(a) * 1.3); }
+      add(world, new THREE.BoxGeometry(1.6, 0.4, 1.6), P("#D62B20"), tx2, 8.3, tz2);
       eyeMesh = add(world, new THREE.SphereGeometry(0.55, 16, 12), new THREE.MeshBasicMaterial({ color: "#FF8A2B" }), tx2, 9.0, tz2); eyeMesh.userData.id = "__ojo";
       const eyeGlow = new THREE.PointLight(0xFF7A2B, T.night ? 1.4 : 0.6, 12); eyeGlow.position.set(tx2, 9.5, tz2 + 1); world.add(eyeGlow);
-      // tiendas de campaña en la llanura de ceniza
-      for (let i = 0; i < 6; i++) { const ox = mx - 8 + mr() * 6, oz = mz + 3 + mr() * 4; add(world, new THREE.ConeGeometry(0.4, 0.6, 4), P("#4A3A2A"), ox, 0.2, oz); }
       cenizaSpot.set(tx2, 0, tz2);
       keep.push([mx - 14, mz - 12, mx + 12, mz + 12]);
     }
@@ -1203,7 +1253,7 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
       }
       im.count = n; im.castShadow = !colors; im.receiveShadow = true; world.add(im);
     }
-    scatter(new THREE.DodecahedronGeometry(0.3, 0), P(T.rock), 140, 0.1, 0.6, 1.8);
+    scatter(new THREE.BoxGeometry(0.45, 0.3, 0.45), P(T.rock), 140, 0.1, 0.6, 1.8);
     scatter(new THREE.BoxGeometry(0.55, 0.4, 0.55), P(T.leafLight), 170, 0.12, 0.7, 1.4);
     scatter(new THREE.BoxGeometry(0.1, 0.1, 0.1), new THREE.MeshStandardMaterial({ color: "#FFFFFF", roughness: 0.5 }), 650, 0.4, 0.8, 1.3, ["#E85D75", "#F2C14E", "#F7F4EA", "#9B7FD1", "#E8A33A", "#F08A4B"]);
     scatter(new THREE.ConeGeometry(0.08, 0.3, 4), P(T.leaf), 600, 0.2, 0.7, 1.4);
@@ -1380,7 +1430,15 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
       }
       for (let i = 0; i < 5; i++) add(pg, new THREE.BoxGeometry(0.04, 0.03, 0.03), P(i % 2 ? "#2A2A2A" : "#F2C14E"), -0.3 + i * 0.15, 0.55 + (i % 3) * 0.08, 0.1);
     },
-    roca(pg) { add(pg, new THREE.DodecahedronGeometry(0.42, 0), P(T.rock), 0, 0.28, 0); }
+    roca(pg) { add(pg, new THREE.DodecahedronGeometry(0.42, 0), P(T.rock), 0, 0.28, 0); },
+    musica(pg) {
+      // a drum with its sticks, and a note stand
+      add(pg, new THREE.CylinderGeometry(0.26, 0.26, 0.34, 18), P("#D62B20"), 0, 0.17, 0);
+      add(pg, new THREE.CylinderGeometry(0.265, 0.265, 0.02, 18), P("#F4F4F0"), 0, 0.35, 0);
+      for (const sd of [-1, 1]) add(pg, new THREE.CylinderGeometry(0.015, 0.015, 0.36, 6), P("#E9C98B"), sd * 0.1, 0.42, 0.05, { rz: sd * 1.1 });
+      add(pg, new THREE.BoxGeometry(0.03, 0.6, 0.03), P("#3A3F46"), 0.38, 0.3, -0.1);
+      add(pg, new THREE.BoxGeometry(0.3, 0.22, 0.02), P("#F4F4F0"), 0.38, 0.66, -0.1, { rx: -0.3 });
+    }
   };
   function buildCraft(g, a, screenMat) {
     const pg = new THREE.Group(); pg.position.set(-0.42, 0, 0.3); pg.rotation.y = 0.5; g.add(pg);
@@ -1393,7 +1451,30 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
   }
 
   // ---------- toy figures ----------
+  const PITCH = 0.8, brickCache = new Map();
+  // a box with studs on its top face, cached by size (one geometry, one draw call)
+  function brickGeo(w, h, d) {
+    const key = [w, h, d].map(v => v.toFixed(3)).join("x");
+    if (brickCache.has(key)) return brickCache.get(key);
+    const parts = [new THREE.BoxGeometry(w, h, d)];
+    const nx = Math.max(1, Math.floor(w / PITCH + 0.15)), nz = Math.max(1, Math.floor(d / PITCH + 0.15));
+    const sx = Math.min(PITCH, w / nx), sz = Math.min(PITCH, d / nz), r = Math.min(0.12, sx * 0.3, sz * 0.3);
+    for (let i = 0; i < nx; i++) for (let j = 0; j < nz; j++) {
+      const c = new THREE.CylinderGeometry(r, r, r * 0.55, 12);
+      c.translate((i - (nx - 1) / 2) * sx, h / 2 + r * 0.27, (j - (nz - 1) / 2) * sz); parts.push(c);
+    }
+    const g = THREE.BufferGeometryUtils ? THREE.BufferGeometryUtils.mergeBufferGeometries(parts) : parts[0];
+    brickCache.set(key, g); return g;
+  }
+  const brickable = geo => {
+    if (!geo || geo.type !== "BoxGeometry") return false;
+    const { width: w, height: h, depth: d } = geo.parameters;
+    return w >= 0.5 && d >= 0.5 && h >= 0.12 && w <= 14 && d <= 14 && (w / PITCH) * (d / PITCH) <= 160;
+  };
   const add = (parent, geo, mat, x, y, z, opts = {}) => {
+    if ((opts.studs || (parent === world && opts.studs !== false)) && !opts.s && brickable(geo)) {
+      const { width: w, height: h, depth: d } = geo.parameters; geo.dispose(); geo = brickGeo(w, h, d);
+    }
     const m = new THREE.Mesh(geo, mat); m.position.set(x, y, z);
     if (opts.rx) m.rotation.x = opts.rx; if (opts.ry) m.rotation.y = opts.ry; if (opts.rz) m.rotation.z = opts.rz;
     if (opts.s) m.scale.set(...opts.s);
@@ -1449,7 +1530,6 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
     add(fig, G.neck, skin, 0, tTop + 0.025, 0);
     const head = new THREE.Group(); head.position.set(0, tTop + 0.05 + 0.13, 0); fig.add(head);
     add(head, G.head, skin, 0, 0, 0);
-    add(head, G.headStud, skin, 0, 0.155, 0);
     const black = P("#151515");
     if (raza === "criatura") {
       add(head, G.bigEye, P("#F4F4EE"), 0.055, 0.03, 0.115); add(head, G.bigEye, P("#F4F4EE"), -0.055, 0.03, 0.115);
@@ -1615,7 +1695,7 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
     const id = pick(e); if (id !== hoverId) { hoverId = id; canvas.style.cursor = id ? "pointer" : ""; }
     const a = id && agentes.get(id);
     if (a) showTipAt(agentTip(a), e.clientX, e.clientY);
-    else if (id === "__ojo") showTipAt("La llama del Vigía, sobre su torre en las Tierras de Ceniza. Cada anillo que gira a su alrededor es un proyecto en marcha: más rojo cuanto más cerca está su plazo. Toca la llama para ver el detalle.", e.clientX, e.clientY);
+    else if (id === "__ojo") showTipAt("La llama del Vigía, sobre su torre junto al volcán. Cada anillo que gira a su alrededor es un proyecto en marcha: más rojo cuanto más cerca está su plazo. Toca la llama para ver el detalle.", e.clientX, e.clientY);
     else if (id === "__dragon") showTipAt("Brasa, el dragón guardián, sobre su tesoro. Cada tarea terminada le suma monedas, joyas y cofres.", e.clientX, e.clientY);
     else if (tipFor === "__canvas") hideTip();
     eyeRingsWant(id === "__ojo");
@@ -1664,7 +1744,7 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
       el("div", { class: "pgroup" },
         el("button", { class: "place", type: "button", "data-tip": "Muestra todo el mapa de una vez.", onclick: () => { nav = null; fitCamera(); }, text: "Ver todo" }),
         el("button", { class: "place dragon-chip", type: "button", "data-tip": "Brasa, el dragón guardián, sobre su tesoro. Cuando un agente trabaja, vuela sobre ese lugar; cada tarea terminada le suma monedas, joyas y cofres.", onclick: () => { const p2 = dragon ? dragon.pos : lair; flyTo(p2.x, p2.z, viewSize / 14); } }, el("b", { text: "Brasa" }), el("small", { text: "el dragón y su tesoro" })),
-        el("button", { class: "place ceniza-chip", type: "button", "data-tip": "Las Tierras de Ceniza y la Torre del Vigía. Pasa el mouse sobre la llama: cada anillo que gira es uno de tus proyectos en marcha, y se enrojece cuando su plazo se acerca.", onclick: () => { eyeRingsWant(true, 8000); flyTo(cenizaSpot.x, cenizaSpot.z, viewSize / 34); } }, el("b", { text: "Tierras de Ceniza" }), el("small", { text: "el Vigía y tus proyectos" }))),
+        el("button", { class: "place ceniza-chip", type: "button", "data-tip": "El Volcán y la Torre del Vigía. Pasa el mouse sobre la llama: cada anillo que gira es uno de tus proyectos en marcha, y se enrojece cuando su plazo se acerca.", onclick: () => { eyeRingsWant(true, 8000); flyTo(cenizaSpot.x, cenizaSpot.z, viewSize / 34); } }, el("b", { text: "El Volcán" }), el("small", { text: "el Vigía y tus proyectos" }))),
       ...groups.map(({ r, zs }) => el("div", { class: "pgroup", style: `--team:${teamColor(r.key)}` },
         el("button", { class: "place realm", type: "button", "data-tip": `Reino del equipo ${r.nombre}: ${(salas.get(r.key) || {}).descripcion || ""} Toca para ver todo su territorio.`, onclick: () => flyToTeam(r.key) }, el("b", { text: r.nombre }), el("small", { text: zs.length > 1 ? `${zs.length} lugares` : short(zs[0]) })),
         ...(zs.length > 1 ? zs.map(z => el("button", { class: "place sub", type: "button", "data-tip": `${z.nombre}: ${(lugares.get(z.key) || {}).descripcion || z.rol || ""} Toca para ir.`, style: `--land:${z.territorio || LAND[z.tipo] || "transparent"}`, onclick: () => flyToZone(z) },
@@ -2029,8 +2109,8 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
   // ---------- the Watcher: every project in motion ----------
   const proyectos = new Map();
   let eyeMesh = null, eyeOpen = false; const cenizaSpot = new THREE.Vector3();
-  const TIPOS = { tarea: "Tarea", entrega: "Entrega", investigacion: "Investigación", otro: "Proyecto" };
-  const TIPOS_PL = { tarea: "Tareas", entrega: "Entregas", investigacion: "Investigación", otro: "Otros" };
+  const TIPOS = { tarea: "Tarea", entrega: "Entrega", personal: "Personal", otro: "Proyecto" };
+  const TIPOS_PL = { tarea: "Tareas", entrega: "Entregas", personal: "Personal", otro: "Otros" };
   const norm = s => String(s || "").trim().toLowerCase();
   function projectList(includeClosed) {
     const list = [...proyectos.entries()].map(([id, p]) => ({ id, ...p, agentes: [] }));
@@ -2285,7 +2365,7 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
     ["baston", "Bastón"], ["espada", "Espada"], ["hacha", "Hacha"], ["arco", "Arco"], ["libro", "Libro"], ["anillo", "Anillo"]];
   const OFICIOS = { escribir: "Escribe", leer: "Lee", cartas: "Cartas", archivo: "Archivo", mapas: "Mapas", contar: "Cuentas", herreria: "Herrería", carpinteria: "Carpintería",
     cuero: "Cuero", telar: "Telar", pintura: "Pintura", pociones: "Pociones", vigia: "Catalejo", orbe: "Piedra que ve", espejo: "Espejo", granja: "Huerto", jardin: "Jardín",
-    colmenas: "Colmenas", mineria: "Minería", pesca: "Pesca", tiro: "Tiro al blanco", barco: "Barco", bodega: "Bodega", roca: "Roca" };
+    colmenas: "Colmenas", mineria: "Minería", pesca: "Pesca", tiro: "Tiro al blanco", barco: "Barco", bodega: "Bodega", roca: "Roca", musica: "Música" };
   async function addTreasure(d) {
     if (!dbRef) return;
     const ref = dbRef.doc("tesoro/dragon"), t = await ref.get(), cur = t.exists ? t.data() : {};
@@ -3239,19 +3319,45 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
 
   // ---------- local world: data/mundo.json + localStorage, when the page runs outside claude.ai ----------
   // It mimics the few calls this page makes to the claude.ai store: collection, doc, orderBy, limit, get, onSnapshot, set, update, delete.
-  const LS_MUNDO = "tierra-agentes-mundo";
-  async function localStore() {
-    let state = null;
-    try { state = JSON.parse(localStorage.getItem(LS_MUNDO) || "null"); } catch (e) {}
-    if (!state) {
-      const res = await fetch("data/mundo.json", { cache: "no-store" });
-      if (!res.ok) throw new Error("data/mundo.json: " + res.status);
-      state = await res.json();
+  // With no world of your own (data/mundo.json still says "mostrarDemo": true and nothing saved here),
+  // the page opens data/demo.json: a sample world whose agents work on their own. ?demo and ?mundo force one or the other.
+  const LS_MUNDO = "tierra-agentes-mundo", LS_MODO = "tierra-agentes-modo";
+  function modoInicial() {
+    const q = new URLSearchParams(location.search);
+    if (q.has("demo")) return "demo";
+    if (q.has("mundo")) return "mundo";
+    try { if (localStorage.getItem(LS_MUNDO) || localStorage.getItem(LS_MODO) === "mundo") return "mundo"; } catch (e) {}
+    return "auto";
+  }
+  function prepDemo(state) {
+    const now = Date.now(), iso = min => new Date(now - min * 60000).toISOString();
+    for (const p of Object.values(state.proyectos || {})) if (isFinite(p.enDias)) { p.plazo = new Date(now + p.enDias * 864e5).toISOString().slice(0, 10); delete p.enDias; }
+    for (const a of Object.values(state.agentes || {})) if (isFinite(a.haceMin)) { a.actualizado = iso(a.haceMin); delete a.haceMin; }
+    const ev = {};
+    for (const e of Object.values(state.eventos || {})) { const ts = iso(+e.haceMin || 0); delete e.haceMin; ev[ts.replace(/[-:.]/g, "") + "-" + e.agente] = { ...e, ts }; }
+    state.eventos = ev;
+    return state;
+  }
+  async function localStore(modo) {
+    let state = null, demo = false, fromFile = false, fileText = "";
+    if (modo !== "demo") {
+      try { state = JSON.parse(localStorage.getItem(LS_MUNDO) || "null"); } catch (e) {}
+      if (!state) {
+        const res = await fetch("data/mundo.json", { cache: "no-store" });
+        if (!res.ok) throw new Error("data/mundo.json: " + res.status);
+        fileText = await res.text(); state = JSON.parse(fileText); fromFile = true;
+        if (modo === "auto" && state.mostrarDemo) { state = null; fromFile = false; }
+      }
     }
+    if (!state) {
+      const res = await fetch("data/demo.json", { cache: "no-store" });
+      if (!res.ok) throw new Error("data/demo.json: " + res.status);
+      state = prepDemo(await res.json()); demo = true;
+    } else delete state.mostrarDemo;
     const clone = o => JSON.parse(JSON.stringify(o));
     const subs = new Set();
     const ensure = col => { if (!state[col] || typeof state[col] !== "object") state[col] = {}; return state[col]; };
-    const save = () => { try { localStorage.setItem(LS_MUNDO, JSON.stringify(state)); } catch (e) {} };
+    const save = () => { if (demo) return; fromFile = false; try { localStorage.setItem(LS_MUNDO, JSON.stringify(state)); } catch (e) {} };
     const notify = col => { for (const sub of subs) if (sub.col === col) sub.fire(); };
     const docSnap = (col, id) => { const c = ensure(col); return { id, exists: id in c, data: () => clone(c[id] || {}), metadata: { fromCache: false } }; };
     const querySnap = (col, order, n) => {
@@ -3277,8 +3383,19 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
       get: async () => querySnap(col, order, n),
       onSnapshot: cb => listen(col, () => querySnap(col, order, n), cb)
     });
+    // while the world comes straight from the file (nothing edited in this browser), re-read it every few seconds:
+    // an agent that writes data/mundo.json (for example with tools/reportar.py) shows up live
+    if (fromFile) setInterval(async () => {
+      if (!fromFile || document.hidden) return;
+      try {
+        const res = await fetch("data/mundo.json", { cache: "no-store" }); if (!res.ok) return;
+        const txt = await res.text(); if (txt === fileText || !fromFile) return;
+        fileText = txt; state = JSON.parse(txt); delete state.mostrarDemo;
+        for (const sub of subs) sub.fire();
+      } catch (e) {}
+    }, 4000);
     return {
-      local: true,
+      local: true, demo,
       collection: col => colRef(col),
       doc: path => { const [col, id] = String(path).split("/"); return docRef(col, id); },
       exportar: () => clone(state),
@@ -3287,7 +3404,15 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
   }
   function setupMundoTools(db) {
     if (!db.local) return;
+    const go = modo => { try { localStorage.setItem(LS_MODO, modo); } catch (e) {} location.href = location.pathname + "?" + modo; };
+    if (db.demo) {
+      $("demo-banner").hidden = false;
+      $("btn-mi-mundo").addEventListener("click", () => go("mundo"));
+      startDemo(db);
+      return;
+    }
     $("mundo-sec").hidden = false;
+    $("btn-ver-demo").addEventListener("click", () => go("demo"));
     $("btn-exportar").addEventListener("click", () => {
       const blob = new Blob([JSON.stringify(db.exportar(), null, 2) + "\n"], { type: "application/json" });
       const a = el("a", { href: URL.createObjectURL(blob), download: "mundo.json" }); document.body.append(a); a.click(); a.remove();
@@ -3296,6 +3421,37 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
     $("btn-restablecer").addEventListener("click", () => {
       if (confirm("¿Volver al mundo guardado en data/mundo.json? Se pierden los cambios hechos en este navegador que no hayas descargado.")) db.restablecer();
     });
+  }
+
+  // ---------- demo: every few seconds one agent moves on (start, wait, HALT, done) and the dragon counts coins ----------
+  function startDemo(db) {
+    const pick = arr => arr[Math.floor(Math.random() * arr.length)];
+    const tick = async () => {
+      if (document.hidden) return;
+      const all = [...agentes.values()].filter(a => Array.isArray(a.tareasDemo) && a.tareasDemo.length);
+      if (!all.length) return;
+      const busy = all.filter(a => estadoDe(a) === "trabajando");
+      const stuck = all.filter(a => ["esperando", "halt"].includes(estadoDe(a)));
+      // keep the world lively: at least three at work, never more than two stuck
+      const pool = busy.length < 3 ? all.filter(a => estadoDe(a) !== "trabajando") : stuck.length > 1 ? stuck : all;
+      const a = pick(pool), e = estadoDe(a);
+      let next, tarea = a.tarea || "", proyecto = a.proyecto || "", nota;
+      if (e === "trabajando") { const r = Math.random(); next = r < 0.64 ? "listo" : (r < 0.86 || stuck.length) ? "esperando" : "halt"; }
+      else next = "trabajando";
+      if (next === "trabajando") {
+        if (e === "esperando") nota = "Recibe la respuesta y sigue.";
+        else if (e === "halt") nota = "Revisado el problema, retoma la tarea.";
+        else { const t = pick(a.tareasDemo); tarea = t.t; proyecto = t.p || ""; nota = `Empieza: ${tarea}.`; }
+      } else if (next === "listo") nota = `Terminó: ${tarea}.`;
+      else if (next === "esperando") nota = pick(a.esperaDemo || ["Necesita una decisión tuya para seguir."]);
+      else nota = pick(a.haltDemo || ["Algo no cuadra y necesita tu revisión."]);
+      const ts = new Date().toISOString();
+      await db.doc("agentes/" + a.id).update({ estado: next, tarea, proyecto, actualizado: ts });
+      await db.collection("eventos").doc(ts.replace(/[-:.]/g, "") + "-" + a.id).set({ agente: a.id, estado: next, nota, ts, ...(proyecto ? { proyecto } : {}) });
+      if (next === "listo") await addTreasure({ monedas: 10, joyas: Math.random() < 0.2 ? 1 : 0 });
+    };
+    setTimeout(tick, 1200);
+    setInterval(tick, reduced ? 6000 : 2800);
   }
 
   // ---------- live store ----------
@@ -3309,7 +3465,7 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
     let db = null;
     if (window.claude && window.claude.use) { try { db = await window.claude.use("db"); } catch (e) { db = null; } }
     if (!db) {
-      try { db = await localStore(); }
+      try { db = await localStore(modoInicial()); }
       catch (e) {
         console.warn(e);
         setLive(false, "Sin datos");
@@ -3317,7 +3473,7 @@ button,.place,.navb,.tab,.row,.lbl{touch-action:manipulation; -webkit-tap-highli
         return;
       }
     }
-    setLive(true, db.local ? "Local · en este navegador" : "En vivo");
+    setLive(true, db.demo ? "Demo · nada se guarda" : db.local ? "Local · en este navegador" : "En vivo");
     dbRef = db;
     setupMundoTools(db);
     const fail = err => { setLive(false, "Conexión interrumpida"); console.warn(err); };
