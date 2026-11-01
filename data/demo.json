@@ -1,0 +1,714 @@
+{
+  "salas": {
+    "maestro": {
+      "nombre": "Orquestador",
+      "descripcion": "Quien recorre todo el mapa y reparte el trabajo.",
+      "color": "#1F62D0",
+      "orden": 0,
+      "tono": 5
+    },
+    "casa": {
+      "nombre": "La casa",
+      "descripcion": "Correo, agenda, cocina, cuentas y notas: lo de todos los días.",
+      "lugar": "valle",
+      "lugarNombre": "Aldaren",
+      "orden": 1,
+      "suelo": "#FFF3C4",
+      "tono": 0
+    },
+    "aventuras": {
+      "nombre": "Viajes y música",
+      "descripcion": "Lo que se planifica para pasarlo bien.",
+      "lugar": "puerto",
+      "lugarNombre": "Brumalinde",
+      "orden": 2,
+      "suelo": "#E3F3FF",
+      "tono": 1
+    },
+    "taller": {
+      "nombre": "Taller de código",
+      "descripcion": "Escribe, prueba y publica software.",
+      "lugar": "forja",
+      "lugarNombre": "Ondral",
+      "orden": 3,
+      "suelo": "#FFE3C8",
+      "tono": 4
+    }
+  },
+  "lugares": {
+    "valle": {
+      "nombre": "Aldaren, el Valle de la Cascada",
+      "rol": "Aquí empieza todo viaje",
+      "descripcion": "Un valle escondido junto a una cascada, donde se reúne el consejo antes de cada partida. Buen lugar para quien planifica.",
+      "tipo": "valle",
+      "x": -16,
+      "z": -10,
+      "orden": 1,
+      "suelo": "#FFF3C4",
+      "territorio": "#FFD84A"
+    },
+    "atalaya": {
+      "nombre": "La Atalaya de los Vientos",
+      "rol": "Se vigilan los plazos",
+      "descripcion": "Una torre en lo alto de la colina, con una lámpara que brilla. Desde aquí se ven todos los proyectos a la vez.",
+      "tipo": "atalaya",
+      "x": -30,
+      "z": 12,
+      "orden": 1.5,
+      "suelo": "#ECE2FA",
+      "territorio": "#B58CF0"
+    },
+    "prados": {
+      "nombre": "Brezal, la Granja de las Lomas",
+      "rol": "Se juntan las provisiones",
+      "descripcion": "Una granja de techo rojo, casitas de colores, huertos y un molino. Buen lugar para quien reúne materiales y provisiones.",
+      "tipo": "prados",
+      "x": -42,
+      "z": 2,
+      "orden": 2,
+      "suelo": "#E6F6CC",
+      "territorio": "#9BD84A"
+    },
+    "ciudad": {
+      "nombre": "Velmira, el Castillo de las Terrazas",
+      "rol": "Se construye la obra grande",
+      "descripcion": "Un castillo de bloques en terrazas, con una torre de techo azul. Buen lugar para el trabajo largo y central.",
+      "tipo": "ciudad",
+      "x": 34,
+      "z": 26,
+      "orden": 3,
+      "suelo": "#F4F4F0",
+      "territorio": "#8FB8FF"
+    },
+    "forja": {
+      "nombre": "Ondral, la Forja de Piedra",
+      "rol": "Se forjan las piezas",
+      "descripcion": "Una herrería de piedra con el fuego siempre encendido, junto a un carro minero lleno de oro. Buen lugar para quien diseña y construye.",
+      "tipo": "forja",
+      "x": -2,
+      "z": 3,
+      "orden": 3.5,
+      "suelo": "#FFE3C8",
+      "territorio": "#FF9E4A"
+    },
+    "hayedo": {
+      "nombre": "Sílvaren, el Bosque de Hayas",
+      "rol": "Todo se pone a prueba",
+      "descripcion": "Un bosque espeso con una casa en el árbol, donde nada pasa sin ser revisado. Buen lugar para quien verifica y controla la calidad.",
+      "tipo": "hayedo",
+      "x": 30,
+      "z": -6,
+      "orden": 4,
+      "suelo": "#D3EFCB",
+      "territorio": "#1E8A3C"
+    },
+    "puerto": {
+      "nombre": "Brumalinde, el Puerto del Faro",
+      "rol": "De aquí zarpan las entregas",
+      "descripcion": "Barquitos de velas de colores amarrados al muelle y un faro rojo y blanco. Buen lugar para quien pule, empaca y entrega.",
+      "tipo": "puerto",
+      "x": -64,
+      "z": 0,
+      "orden": 5,
+      "suelo": "#E3F3FF",
+      "territorio": "#6CC2FF"
+    },
+    "montana": {
+      "nombre": "Tharrok, la Montaña del Trueno",
+      "rol": "La gran empresa",
+      "descripcion": "Una montaña de bloques con una puerta tallada en la roca. Buen lugar para un proyecto grande con muchas piezas.",
+      "tipo": "montana",
+      "x": 46,
+      "z": -26,
+      "orden": 6,
+      "suelo": "#E0E4EA",
+      "territorio": "#9AA2AE"
+    },
+    "colmenar": {
+      "nombre": "La Cabaña de las Colmenas",
+      "rol": "Oficio y hospitalidad",
+      "descripcion": "Un salón de madera entre colmenas y flores. Buen lugar para un equipo pequeño y constante.",
+      "tipo": "colmenar",
+      "x": 10,
+      "z": -12,
+      "orden": 7,
+      "suelo": "#FFEAB3",
+      "territorio": "#FFC12E"
+    },
+    "arboleda": {
+      "nombre": "La Arboleda Antigua",
+      "rol": "Se guarda la memoria",
+      "descripcion": "Entre árboles viejos y hongos gigantes se escucha y se anota cada paso, sin prisa.",
+      "tipo": "arboleda",
+      "x": 0,
+      "z": 16,
+      "orden": 8,
+      "suelo": "#D3EFCB",
+      "territorio": "#2E9E4A"
+    },
+    "cobre": {
+      "nombre": "Las Colinas de Cobre",
+      "rol": "Se excavan los datos",
+      "descripcion": "Lomas redondas con la boca de una mina y un carro sobre rieles. Buen lugar para quien saca datos de la roca.",
+      "tipo": "cobre",
+      "x": 64,
+      "z": -10,
+      "orden": 9,
+      "suelo": "#FFDCCB",
+      "territorio": "#F07A4A"
+    }
+  },
+  "agentes": {
+    "maestro": {
+      "personaje": "Orvald, el Orquestador",
+      "nombre": "Orquestador",
+      "descripcion": "Recibe tus pedidos y los reparte entre los demás agentes.",
+      "sala": "maestro",
+      "megaCoordinador": true,
+      "itinerante": true,
+      "recorreTodo": true,
+      "estado": "trabajando",
+      "tarea": "Repartir los pedidos de la mañana",
+      "haceMin": 2,
+      "voz": "Alegre y sin apuro. Conoce cada camino del mapa.",
+      "apariencia": {
+        "raza": "hombre",
+        "tunica": "#1F62D0",
+        "piernas": "#1B1D24",
+        "pelo": "#F4F4F0",
+        "barba": "#F4F4F0",
+        "sombrero": "#1F62D0",
+        "accesorios": [
+          "barba",
+          "sombrero",
+          "baston"
+        ]
+      }
+    },
+    "correo": {
+      "personaje": "Liria, la Mensajera",
+      "nombre": "Agente de correo",
+      "descripcion": "Ordena la bandeja de entrada, resume los hilos largos y deja borradores de respuesta.",
+      "sala": "casa",
+      "lugar": "valle",
+      "actividad": "cartas",
+      "estado": "trabajando",
+      "tarea": "Resumir los 42 correos sin leer",
+      "proyecto": "",
+      "haceMin": 3,
+      "coordinador": true,
+      "fase": "Coordina",
+      "voz": "Rápida y ordenada. Nunca deja un correo sin etiqueta.",
+      "apariencia": {
+        "raza": "elfo",
+        "mujer": true,
+        "tunica": "#D62B20",
+        "piernas": "#1B1D24",
+        "pelo": "#3A2414",
+        "peloLargo": true,
+        "accesorios": [
+          "orejas"
+        ]
+      },
+      "tareasDemo": [
+        {
+          "t": "Resumir los 42 correos sin leer",
+          "p": ""
+        },
+        {
+          "t": "Responder la invitación al asado",
+          "p": "cumple"
+        },
+        {
+          "t": "Archivar los boletines",
+          "p": ""
+        },
+        {
+          "t": "Pedir cotizaciones de flete",
+          "p": "mudanza"
+        }
+      ],
+      "esperaDemo": [
+        "¿Contesto que sí al asado del sábado?",
+        "Hay un correo del banco: ¿lo marco como importante?"
+      ],
+      "haltDemo": [
+        "HALT: un correo pide una clave. No respondo y te aviso."
+      ]
+    },
+    "agenda": {
+      "personaje": "Sami, el Vigía del Calendario",
+      "nombre": "Agente de agenda",
+      "descripcion": "Cuida reuniones, cumpleaños y recordatorios. Avisa cuando dos cosas chocan.",
+      "sala": "casa",
+      "lugar": "atalaya",
+      "actividad": "vigia",
+      "estado": "esperando",
+      "tarea": "Ordenar la semana",
+      "proyecto": "",
+      "haceMin": 6,
+      "voz": "Atento y puntual.",
+      "apariencia": {
+        "raza": "mediano",
+        "tunica": "#F7C21E",
+        "piernas": "#1F62D0",
+        "pelo": "#8A4B22",
+        "accesorios": []
+      },
+      "tareasDemo": [
+        {
+          "t": "Ordenar la semana",
+          "p": ""
+        },
+        {
+          "t": "Buscar hora para el dentista",
+          "p": ""
+        },
+        {
+          "t": "Recordar el cumpleaños de Ana",
+          "p": "cumple"
+        }
+      ],
+      "esperaDemo": [
+        "Dos reuniones chocan el martes a las 10. ¿Cuál muevo?"
+      ],
+      "haltDemo": [
+        "HALT: el calendario compartido no responde."
+      ]
+    },
+    "cocina": {
+      "personaje": "Tobo, el Cocinero",
+      "nombre": "Agente de cocina",
+      "descripcion": "Arma el menú de la semana con lo que hay en el refri y prepara la lista del súper.",
+      "sala": "casa",
+      "lugar": "prados",
+      "actividad": "pociones",
+      "estado": "listo",
+      "tarea": "Hacer la lista del súper",
+      "proyecto": "",
+      "haceMin": 14,
+      "voz": "Glotón y generoso.",
+      "apariencia": {
+        "raza": "mediano",
+        "tunica": "#F4F4F0",
+        "piernas": "#D62B20",
+        "pelo": "#2A1A10",
+        "accesorios": []
+      },
+      "tareasDemo": [
+        {
+          "t": "Armar el menú de la semana",
+          "p": ""
+        },
+        {
+          "t": "Hacer la lista del súper",
+          "p": ""
+        },
+        {
+          "t": "Buscar una torta sin gluten",
+          "p": "cumple"
+        },
+        {
+          "t": "Calcular porciones para 12",
+          "p": "cumple"
+        }
+      ],
+      "esperaDemo": [
+        "¿Pescado o lentejas para el jueves?"
+      ],
+      "haltDemo": [
+        "HALT: la receta pide nueces y alguien es alérgico."
+      ]
+    },
+    "finanzas": {
+      "personaje": "Dora, la Tesorera",
+      "nombre": "Agente de finanzas personales",
+      "descripcion": "Anota gastos, compara con el presupuesto y avisa antes de que te pases.",
+      "sala": "casa",
+      "lugar": "ciudad",
+      "actividad": "contar",
+      "estado": "trabajando",
+      "tarea": "Ordenar los gastos de octubre",
+      "proyecto": "presupuesto",
+      "haceMin": 4,
+      "liderLugar": true,
+      "voz": "Calmada y precisa con los números.",
+      "apariencia": {
+        "raza": "hombre",
+        "mujer": true,
+        "tunica": "#22943E",
+        "piernas": "#1B1D24",
+        "pelo": "#1B1D24",
+        "peloLargo": true,
+        "accesorios": [
+          "libro"
+        ]
+      },
+      "tareasDemo": [
+        {
+          "t": "Ordenar los gastos de octubre",
+          "p": "presupuesto"
+        },
+        {
+          "t": "Comparar planes de internet",
+          "p": ""
+        },
+        {
+          "t": "Revisar suscripciones que no usas",
+          "p": "presupuesto"
+        }
+      ],
+      "esperaDemo": [
+        "Hay 3 suscripciones sin uso. ¿Las cancelo?"
+      ],
+      "haltDemo": [
+        "HALT: falta el estado de cuenta de septiembre."
+      ]
+    },
+    "notas": {
+      "personaje": "Roble, el Guardián de Notas",
+      "nombre": "Agente de notas",
+      "descripcion": "Guarda ideas, resúmenes y todo lo que no quieres olvidar, y lo encuentra cuando lo pides.",
+      "sala": "casa",
+      "lugar": "arboleda",
+      "actividad": "archivo",
+      "estado": "listo",
+      "tarea": "Ordenar las notas de la semana",
+      "proyecto": "",
+      "haceMin": 25,
+      "voz": "Lento, sabio y paciente.",
+      "apariencia": {
+        "raza": "arbol",
+        "tunica": "#8A4B22",
+        "piernas": "#5E3418",
+        "accesorios": [
+          "hojas"
+        ]
+      },
+      "tareasDemo": [
+        {
+          "t": "Ordenar las notas de la semana",
+          "p": ""
+        },
+        {
+          "t": "Guardar la receta de la abuela",
+          "p": ""
+        },
+        {
+          "t": "Juntar ideas para la fiesta",
+          "p": "cumple"
+        }
+      ],
+      "esperaDemo": [
+        "Tengo dos notas casi iguales. ¿Las uno?"
+      ],
+      "haltDemo": [
+        "HALT: una nota está vacía y no sé de dónde vino."
+      ]
+    },
+    "viajes": {
+      "personaje": "Marina, la Navegante",
+      "nombre": "Agente de viajes",
+      "descripcion": "Busca vuelos y alojamiento, arma itinerarios y guarda las reservas en un solo lugar.",
+      "sala": "aventuras",
+      "lugar": "puerto",
+      "actividad": "barco",
+      "estado": "trabajando",
+      "tarea": "Comparar pasajes a la costa",
+      "proyecto": "viaje-costa",
+      "haceMin": 1,
+      "coordinador": true,
+      "fase": "Coordina",
+      "voz": "Aventurera y práctica.",
+      "apariencia": {
+        "raza": "hombre",
+        "mujer": true,
+        "tunica": "#1F62D0",
+        "piernas": "#F4F4F0",
+        "pelo": "#C8501E",
+        "peloLargo": true,
+        "capa": "#F7C21E",
+        "accesorios": []
+      },
+      "tareasDemo": [
+        {
+          "t": "Comparar pasajes a la costa",
+          "p": "viaje-costa"
+        },
+        {
+          "t": "Armar el itinerario día a día",
+          "p": "viaje-costa"
+        },
+        {
+          "t": "Buscar cabañas con vista al mar",
+          "p": "viaje-costa"
+        }
+      ],
+      "esperaDemo": [
+        "Hay dos vuelos: el barato sale a las 6 a. m. ¿Cuál reservo?"
+      ],
+      "haltDemo": [
+        "HALT: el precio cambió al pagar. No compro sin tu visto bueno."
+      ]
+    },
+    "musica": {
+      "personaje": "Fen, el Juglar",
+      "nombre": "Agente de música",
+      "descripcion": "Arma playlists según el ánimo, el clima o la fiesta, y descubre artistas nuevos.",
+      "sala": "aventuras",
+      "lugar": "colmenar",
+      "actividad": "musica",
+      "estado": "listo",
+      "tarea": "Armar la playlist de la fiesta",
+      "proyecto": "cumple",
+      "haceMin": 9,
+      "voz": "Alegre; habla con ritmo.",
+      "apariencia": {
+        "raza": "elfo",
+        "tunica": "#9B4DCA",
+        "piernas": "#1B1D24",
+        "pelo": "#F7C21E",
+        "accesorios": [
+          "orejas"
+        ]
+      },
+      "tareasDemo": [
+        {
+          "t": "Armar la playlist de la fiesta",
+          "p": "cumple"
+        },
+        {
+          "t": "Música para el viaje en auto",
+          "p": "viaje-costa"
+        },
+        {
+          "t": "Buscar discos parecidos al último que te gustó",
+          "p": ""
+        }
+      ],
+      "esperaDemo": [
+        "¿Cumbia o rock para abrir la fiesta?"
+      ],
+      "haltDemo": [
+        "HALT: tres canciones no están disponibles en tu país."
+      ]
+    },
+    "codigo": {
+      "personaje": "Brokk, el Herrero de Código",
+      "nombre": "Agente de código",
+      "descripcion": "Escribe funciones, revisa pull requests y arregla lo que se rompe.",
+      "sala": "taller",
+      "lugar": "forja",
+      "actividad": "herreria",
+      "estado": "halt",
+      "tarea": "Revisar el pull request #42",
+      "proyecto": "app-recetas",
+      "haceMin": 7,
+      "coordinador": true,
+      "fase": "Coordina",
+      "voz": "Gruñón pero cumplidor.",
+      "apariencia": {
+        "raza": "enano",
+        "tunica": "#F57C1F",
+        "piernas": "#1B1D24",
+        "pelo": "#8A2A10",
+        "barba": "#C8501E",
+        "accesorios": [
+          "barba",
+          "casco"
+        ]
+      },
+      "tareasDemo": [
+        {
+          "t": "Revisar el pull request #42",
+          "p": "app-recetas"
+        },
+        {
+          "t": "Arreglar el botón de favoritos",
+          "p": "app-recetas"
+        },
+        {
+          "t": "Escribir la búsqueda por ingrediente",
+          "p": "app-recetas"
+        }
+      ],
+      "esperaDemo": [
+        "¿Subo el cambio a la rama principal o esperas a revisarlo?"
+      ],
+      "haltDemo": [
+        "HALT: 3 tests fallan después del cambio. Necesito que lo mires.",
+        "HALT: falta una variable de entorno para publicar."
+      ]
+    },
+    "pruebas": {
+      "personaje": "Pía, la Probadora",
+      "nombre": "Agente de pruebas",
+      "descripcion": "Prueba cada cambio en el navegador y en el celular antes de publicarlo.",
+      "sala": "taller",
+      "lugar": "hayedo",
+      "actividad": "tiro",
+      "estado": "trabajando",
+      "tarea": "Probar la app en el celular",
+      "proyecto": "app-recetas",
+      "haceMin": 2,
+      "voz": "Curiosa; no deja pasar un error.",
+      "apariencia": {
+        "raza": "hombre",
+        "mujer": true,
+        "tunica": "#D62B20",
+        "piernas": "#1F62D0",
+        "pelo": "#F7C21E",
+        "accesorios": [
+          "arco"
+        ]
+      },
+      "tareasDemo": [
+        {
+          "t": "Probar la app en el celular",
+          "p": "app-recetas"
+        },
+        {
+          "t": "Revisar que no haya enlaces rotos",
+          "p": "app-recetas"
+        },
+        {
+          "t": "Medir cuánto tarda en cargar",
+          "p": "app-recetas"
+        }
+      ],
+      "esperaDemo": [
+        "La pantalla de inicio se ve cortada en celulares chicos. ¿La arreglo ahora?"
+      ],
+      "haltDemo": [
+        "HALT: la página no abre en Safari."
+      ]
+    }
+  },
+  "proyectos": {
+    "app-recetas": {
+      "nombre": "App de recetas v2",
+      "tipo": "entrega",
+      "estado": "en curso",
+      "fase": "Pruebas",
+      "destino": "Tienda de apps",
+      "enDias": 6,
+      "carpeta": "",
+      "notas": "Búsqueda por ingrediente y modo oscuro."
+    },
+    "presupuesto": {
+      "nombre": "Presupuesto del año",
+      "tipo": "tarea",
+      "estado": "en curso",
+      "fase": "Gastos de octubre",
+      "destino": "",
+      "enDias": 3,
+      "carpeta": "",
+      "notas": ""
+    },
+    "cumple": {
+      "nombre": "Fiesta de cumpleaños",
+      "tipo": "personal",
+      "estado": "en curso",
+      "fase": "Invitaciones",
+      "destino": "",
+      "enDias": 11,
+      "carpeta": "",
+      "notas": "12 invitados."
+    },
+    "viaje-costa": {
+      "nombre": "Viaje a la costa",
+      "tipo": "personal",
+      "estado": "en curso",
+      "fase": "Reservas",
+      "destino": "",
+      "enDias": 19,
+      "carpeta": "",
+      "notas": ""
+    },
+    "mudanza": {
+      "nombre": "Mudanza",
+      "tipo": "otro",
+      "estado": "en espera",
+      "fase": "Cotizaciones",
+      "destino": "",
+      "enDias": 40,
+      "carpeta": "",
+      "notas": "Esperando respuesta de dos empresas de flete."
+    }
+  },
+  "eventos": {
+    "e00": {
+      "agente": "maestro",
+      "estado": "listo",
+      "nota": "Abrió el día y repartió los pedidos.",
+      "haceMin": 60
+    },
+    "e01": {
+      "agente": "notas",
+      "estado": "listo",
+      "nota": "Terminó: Ordenar las notas de la semana.",
+      "haceMin": 25
+    },
+    "e02": {
+      "agente": "cocina",
+      "estado": "listo",
+      "nota": "Terminó: Hacer la lista del súper.",
+      "haceMin": 14
+    },
+    "e03": {
+      "agente": "musica",
+      "estado": "listo",
+      "nota": "Terminó: Armar la playlist de la fiesta.",
+      "haceMin": 9,
+      "proyecto": "cumple"
+    },
+    "e04": {
+      "agente": "codigo",
+      "estado": "halt",
+      "nota": "HALT: 3 tests fallan después del cambio. Necesito que lo mires.",
+      "haceMin": 7,
+      "proyecto": "app-recetas"
+    },
+    "e05": {
+      "agente": "agenda",
+      "estado": "esperando",
+      "nota": "Dos reuniones chocan el martes a las 10. ¿Cuál muevo?",
+      "haceMin": 6
+    },
+    "e06": {
+      "agente": "finanzas",
+      "estado": "trabajando",
+      "nota": "Empieza: Ordenar los gastos de octubre.",
+      "haceMin": 4,
+      "proyecto": "presupuesto"
+    },
+    "e07": {
+      "agente": "correo",
+      "estado": "trabajando",
+      "nota": "Empieza: Resumir los 42 correos sin leer.",
+      "haceMin": 3
+    },
+    "e08": {
+      "agente": "pruebas",
+      "estado": "trabajando",
+      "nota": "Empieza: Probar la app en el celular.",
+      "haceMin": 2,
+      "proyecto": "app-recetas"
+    },
+    "e09": {
+      "agente": "viajes",
+      "estado": "trabajando",
+      "nota": "Empieza: Comparar pasajes a la costa.",
+      "haceMin": 1,
+      "proyecto": "viaje-costa"
+    }
+  },
+  "historia": {},
+  "tesoro": {
+    "dragon": {
+      "monedas": 120,
+      "joyas": 2,
+      "cofres": 1
+    }
+  }
+}

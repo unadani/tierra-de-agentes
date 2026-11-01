@@ -1,42 +1,126 @@
 # Tierra de Agentes
 
-*[English below](#english)*
+**Give your AI agents a world to live in.**
 
-Un mundo de fantasía en 3D, con figuras de juguete, para darle un lugar a tus agentes. Cada agente vive en un pueblo, un bosque o una ciudad del mapa, tiene un personaje, una apariencia y una función, y muestra su estado con una linterna: trabajando, en espera, HALT, listo o inactivo.
+A 3D fantasy map in toy-brick style where every AI agent is a little plastic figure. Its lantern shows what it is doing right now: working, waiting for you, stopped with a HALT, or done. A dragon guards the treasure and earns coins every time an agent finishes a task.
 
-El mundo viene vacío a propósito. Trae once lugares y cinco equipos como plantillas, y tres agentes de ejemplo sin función. Lo llenas tú.
+**[▶ Open the live demo](https://unadani.github.io/tierra-de-agentes/)** · [Leer en español](#español)
 
-## Qué trae
+![Ten agents working in a toy-brick fantasy world](docs/demo.gif)
 
-- **El mapa**: once lugares con su paisaje (un valle con cascada, una ciudad blanca, un puerto, una forja, minas, bosques) unidos por caminos y un río.
-- **Los agentes**: figuras con oficio, linterna de estado y ficha. Los coordinadores llevan estandarte, y un Gran Maestro recorre el mapa.
-- **El editor**: crea, edita y borra agentes desde la página (botón «+ Nuevo agente» en el panel «Agentes y bitácora»).
-- **La Torre del Vigía**: tus proyectos, ordenados por plazo. Cada proyecto en marcha es un anillo que gira alrededor de la llama.
-- **La Crónica y el registro de actividad**: todo lo que reportan los agentes, por día, con sesiones y duraciones.
-- **Brasa, el dragón guardián**: su tesoro crece con cada tarea terminada (+10 monedas) y cada proyecto enviado o logrado (cofres).
+It is one HTML file and one JSON file. No build step, no server, no account.
 
-## Cómo abrirlo
+## Start in one step
 
-El navegador no deja leer `data/mundo.json` si abres `index.html` con doble clic. Sirve la carpeta con cualquier servidor local:
+1. **Fork** this repository, then go to **Settings → Pages** and choose branch `main`, folder `/`.
+
+Your world will be at `https://<your-user>.github.io/tierra-de-agentes/`. Until you add your own agents it opens the demo; the yellow **Crear mi mundo** button switches to your own, empty world.
+
+To run it on your computer instead:
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Y entra a <http://localhost:8000>. También funciona tal cual en GitHub Pages (Settings → Pages → rama `main`, carpeta `/`).
+Then open <http://localhost:8000>. (Opening `index.html` with a double click does not work: browsers block it from reading `data/mundo.json`.)
 
-Necesita conexión a internet para cargar Three.js y las fuentes desde sus CDN.
+## What you get
 
-## Cómo se guardan los cambios
+- **The map**: eleven places, each with its own scenery (a valley with a waterfall, a farm, a castle, a harbour with a lighthouse, a forge, forests, a volcano), linked by roads and a river.
+- **Agents as toy figures**: each one has a character, a look, a craft and a state lantern. Coordinators carry a banner, and an orchestrator walks the whole map.
+- **Live states**: `trabajando` (working), `esperando` (waiting for you), `halt`, `listo` (done) and `inactivo` (idle).
+- **The Watcher's tower**: your projects, sorted by deadline. Each active project is a ring spinning around its flame.
+- **The Chronicle and the activity log**: every step your agents report, by day.
+- **Brasa, the dragon**: +10 coins per finished task, jewels and chests for bigger wins.
+- **An editor in the page**: create, edit and delete agents without touching the JSON.
 
-1. Al abrir, la página lee `data/mundo.json`.
+The interface is in Spanish for now. Labels are short, and the state colours speak for themselves.
+
+## Connect any agent
+
+Your agents report by writing to `data/mundo.json`. Anything that can run a command or edit a file can do it: a Claude skill, a cron job, a Python script, an n8n flow, a GitHub Action.
+
+The easiest way is the helper script (standard library only):
+
+```bash
+python3 tools/reportar.py correo trabajando "Sorting the inbox" --tarea "Sort the inbox"
+python3 tools/reportar.py correo esperando "Should I answer the invitation?"
+python3 tools/reportar.py correo listo "Inbox sorted: 42 emails, 3 need you"
+```
+
+It updates the agent's state, adds a line to the log and, on `listo`, pays the dragon. If the agent does not exist yet, it creates one.
+
+- **Locally**, the page re-reads the file every few seconds, so you watch it change live.
+- **On GitHub Pages**, commit and push `data/mundo.json`; the page shows the change on the next load.
+
+Prefer to write the JSON yourself? Set `agentes.<id>.estado` and add an entry to `eventos`:
+
+```json
+"20261101T120000Z-correo": { "agente": "correo", "estado": "listo", "nota": "Inbox sorted.", "ts": "2026-11-01T12:00:00Z" }
+```
+
+### Example: a Claude skill
+
+[`examples/claude-skill/tierra-de-agentes/SKILL.md`](examples/claude-skill/tierra-de-agentes/SKILL.md) teaches Claude (Claude Code or claude.ai) to report every start, question, HALT and finish with `tools/reportar.py`. Copy the folder into your skills (for Claude Code, `~/.claude/skills/`), and your sessions show up on the map as they work.
+
+### Inside claude.ai
+
+If you publish the page as a claude.ai artifact, it uses the artifact's shared database instead of the JSON file. There you can also talk to each agent, call a council of agents, and ask the orchestrator for help. In the local copy those conversations are off.
+
+## Make it yours
+
+Everything lives in [`data/mundo.json`](data/mundo.json): places (`lugares`), teams (`salas`), agents (`agentes`), projects (`proyectos`), the log (`eventos`) and the dragon's treasure (`tesoro`). The Spanish section below has a full example of each record and the list of valid values. [`data/demo.json`](data/demo.json) is a complete world to copy from.
+
+Changes you make in the page are saved in your browser. Use **Descargar mundo.json** at the bottom of the side panel to keep them, and replace the file in your fork.
+
+## Credits
+
+Inspired by the classic fantasy sagas, with a nod to J.R.R. Tolkien. This is a fan project with no connection to the Tolkien Estate, and it is not affiliated with or endorsed by any toy company. All names, places and designs in the world are original.
+
+Built with [Three.js](https://threejs.org) (MIT) and the Fredoka and Nunito fonts (SIL Open Font License), loaded from their CDNs. Code under the [MIT license](LICENSE).
+
+---
+
+## Español
+
+**Dale a tus agentes de IA un mundo donde vivir.**
+
+Tierra de Agentes es un mapa de fantasía en 3D, en estilo bloques de juguete, donde cada agente de IA es una figurita de plástico. Su linterna muestra qué está haciendo: trabajando, esperando una respuesta tuya, detenido con un HALT o listo. Un dragón cuida el tesoro y suma monedas cada vez que un agente termina una tarea.
+
+**[▶ Abre la demo](https://unadani.github.io/tierra-de-agentes/)**
+
+Es un archivo HTML y un archivo JSON. No hay que compilar nada, ni tener servidor, ni crear cuentas.
+
+### Empieza en un paso
+
+1. Haz **fork** de este repositorio y, en **Settings → Pages**, elige la rama `main` y la carpeta `/`.
+
+Tu mundo queda en `https://<tu-usuario>.github.io/tierra-de-agentes/`. Mientras no agregues agentes propios, se abre la demo. El botón amarillo **Crear mi mundo** te lleva a tu mundo vacío.
+
+Para abrirlo en tu computador, sirve la carpeta con `python3 -m http.server 8000` y entra a <http://localhost:8000>. Con doble clic no funciona, porque el navegador no deja leer `data/mundo.json`.
+
+### Conecta cualquier agente
+
+Tus agentes reportan escribiendo en `data/mundo.json`. Sirve cualquier cosa que pueda correr un comando o editar un archivo: una skill de Claude, una tarea programada, un script o una GitHub Action. Lo más simple es el script incluido:
+
+```bash
+python3 tools/reportar.py correo trabajando "Ordena la bandeja" --tarea "Ordenar la bandeja"
+python3 tools/reportar.py correo listo "Bandeja ordenada: 42 correos, 3 te necesitan"
+```
+
+El script cambia el estado del agente, anota el paso en la bitácora y, con `listo`, le paga al dragón. En tu computador, la página vuelve a leer el archivo cada pocos segundos y ves el cambio en vivo. En GitHub Pages, haz commit y push de `data/mundo.json`.
+
+La skill de ejemplo está en [`examples/claude-skill/tierra-de-agentes/SKILL.md`](examples/claude-skill/tierra-de-agentes/SKILL.md). Cópiala en tus skills y Claude reportará cada inicio, pregunta, HALT y término.
+
+### Cómo se guardan los cambios
+
+1. Al abrir, la página lee `data/mundo.json`. Si el archivo dice `"mostrarDemo": true` y no has cambiado nada en este navegador, muestra la demo.
 2. Lo que cambies en la página (agentes, proyectos, estados) se guarda en el `localStorage` de tu navegador. Solo lo ves tú, en ese navegador.
 3. Para conservarlo o compartirlo, usa **Descargar mundo.json** (al final del panel) y reemplaza el archivo `data/mundo.json`.
-4. **Volver a data/mundo.json** borra los cambios locales y recarga el archivo.
+4. **Volver a data/mundo.json** borra los cambios locales y recarga el archivo. **Ver la demo** vuelve a la demo.
+5. También puedes forzar una vista con `?demo` o `?mundo` al final de la dirección.
 
-Si publicas la página como artifact de claude.ai, usa la base de datos del artifact en lugar del archivo local, y se activan las conversaciones con los agentes, el Concilio y el llamado al Maestro. En la copia local esas conversaciones están apagadas.
-
-## Cómo editar `data/mundo.json`
+### Cómo editar `data/mundo.json`
 
 El archivo tiene siete colecciones. Cada una es un objeto cuyas claves son los identificadores.
 
@@ -50,7 +134,7 @@ El archivo tiene siete colecciones. Cada una es un objeto cuyas claves son los i
 | `historia` | Entradas antiguas de la Crónica (opcional). |
 | `tesoro` | El tesoro del dragón, en `tesoro.dragon`. |
 
-### Un lugar
+#### Un lugar
 
 ```json
 "valle": {
@@ -60,120 +144,68 @@ El archivo tiene siete colecciones. Cada una es un objeto cuyas claves son los i
   "tipo": "valle",
   "x": -16, "z": -10,
   "orden": 1,
-  "suelo": "#D8CCB0",
-  "territorio": "#C9A86A"
+  "suelo": "#FFF3C4",
+  "territorio": "#FFD84A"
 }
 ```
 
 - `tipo` elige el paisaje que se dibuja alrededor: `valle`, `atalaya`, `prados`, `ciudad`, `forja`, `hayedo`, `puerto`, `montana`, `colmenar`, `arboleda` o `cobre`. Puedes inventar otros tipos: se dibujan sin paisaje propio.
-- `x` y `z` ubican el lugar en el mapa (oeste a este, norte a sur). Si dos lugares chocan, la página los separa.
+- `x` y `z` ubican el lugar en el mapa (de oeste a este y de norte a sur). Si dos lugares chocan, la página los separa.
 - `suelo` es el color de la plaza y `territorio`, el del halo de tierra que la rodea.
 
-### Un equipo
+#### Un equipo
 
 ```json
-"principal": { "nombre": "Equipo principal", "descripcion": "…", "lugar": "valle", "orden": 1, "color": "#C9A23A" }
+"principal": { "nombre": "Equipo principal", "descripcion": "…", "lugar": "valle", "orden": 1, "color": "#1F62D0" }
 ```
 
-### Un agente
+#### Un agente
 
 ```json
-"guia": {
-  "personaje": "Liria, la Guía",
-  "nombre": "Función por definir",
-  "descripcion": "",
+"correo": {
+  "personaje": "Liria, la Mensajera",
+  "nombre": "Agente de correo",
+  "descripcion": "Ordena la bandeja y deja borradores de respuesta.",
   "sala": "principal",
   "lugar": "valle",
-  "fase": "Dirección",
-  "actividad": "mapas",
-  "estado": "inactivo",
-  "tarea": "",
-  "voz": "Serena y ordenada.",
+  "fase": "Coordina",
+  "actividad": "cartas",
+  "estado": "trabajando",
+  "tarea": "Resumir los correos sin leer",
+  "voz": "Rápida y ordenada.",
   "coordinador": true,
   "apariencia": {
     "raza": "elfo",
     "mujer": true,
-    "tunica": "#3E6B5A",
-    "piernas": "#2E3E36",
-    "pelo": "#2A2018",
+    "tunica": "#D62B20",
+    "piernas": "#1B1D24",
+    "pelo": "#3A2414",
     "peloLargo": true,
-    "accesorios": ["orejas", "libro"]
+    "accesorios": ["orejas"]
   }
 }
 ```
 
 - `personaje` es el nombre que se ve en el mapa; `nombre` es su función.
 - `estado`: `trabajando`, `esperando`, `halt`, `listo` o `inactivo`.
-- `actividad` es el oficio que tiene a su lado: `escribir`, `leer`, `cartas`, `archivo`, `mapas`, `contar`, `herreria`, `carpinteria`, `cuero`, `telar`, `pintura`, `pociones`, `vigia`, `orbe`, `espejo`, `granja`, `jardin`, `colmenas`, `mineria`, `pesca`, `tiro`, `barco`, `bodega` o `roca`.
-- Rango: `coordinador` (estandarte dorado), `liderLugar` (estandarte de color) o `megaCoordinador` con `itinerante` y `recorreTodo` (el Gran Maestro, que camina por todo el mapa).
+- `actividad` es el oficio que tiene a su lado: `escribir`, `leer`, `cartas`, `archivo`, `mapas`, `contar`, `herreria`, `carpinteria`, `cuero`, `telar`, `pintura`, `pociones`, `vigia`, `orbe`, `espejo`, `granja`, `jardin`, `colmenas`, `mineria`, `pesca`, `tiro`, `barco`, `bodega`, `roca` o `musica`.
+- Rango: `coordinador` (estandarte dorado), `liderLugar` (estandarte de color) o `megaCoordinador` con `itinerante` y `recorreTodo` (quien camina por todo el mapa).
 - `apariencia.raza`: `hombre`, `elfo`, `enano`, `mediano`, `criatura`, `arbol` o `aguila`.
 - `apariencia.accesorios`: `barba`, `orejas`, `casco`, `corona`, `sombrero`, `hojas`, `baston`, `espada`, `hacha`, `arco`, `libro`, `anillo`.
 - Otros campos de `apariencia`: `piel`, `pelo`, `barba`, `capa` (colores), y `peloLargo`, `mujer`, `falda`, `silla` (silla de ruedas) como `true`.
 
-### Un evento de la bitácora
+#### Un evento de la bitácora
 
 ```json
-"20261027T120000Z-guia": { "agente": "guia", "estado": "trabajando", "nota": "Empieza el mapa.", "ts": "2026-10-27T12:00:00Z", "proyecto": "proyecto-de-ejemplo" }
+"20261101T120000Z-correo": { "agente": "correo", "estado": "trabajando", "nota": "Empieza a ordenar la bandeja.", "ts": "2026-11-01T12:00:00Z", "proyecto": "mudanza" }
 ```
 
-Un agente externo (un script, otra herramienta) puede reportar sus pasos escribiendo eventos y actualizando el `estado` del agente.
+### Si lo publicas en claude.ai
 
-## Licencia
+Si publicas la página como artifact de claude.ai, usa la base de datos del artifact en lugar del archivo. Ahí se activan las conversaciones con los agentes, el Concilio y el llamado al Orquestador. En la copia local esas conversaciones están apagadas.
 
-MIT. Ver [LICENSE](LICENSE). Usa [Three.js](https://threejs.org) (MIT) y fuentes de Google Fonts (SIL Open Font License), que se cargan desde sus CDN.
+### Créditos
 
----
+Inspirado en las sagas de fantasía clásicas, con un guiño a J.R.R. Tolkien. Es un proyecto de fans sin relación con el Tolkien Estate, y no está afiliado a ninguna empresa de juguetes ni cuenta con su respaldo. Los nombres, lugares y diseños del mundo son propios.
 
-## English
-
-A 3D fantasy world of toy figures that gives your agents a home. Each agent lives in a village, forest or city on the map, with a character, a look and a role, and shows its state with a lantern: working, waiting, HALT, done or idle.
-
-The world ships empty on purpose. It has eleven places and five teams as templates, and three sample agents with no role yet. You fill it in.
-
-### What is in it
-
-- **The map**: eleven places with their own scenery (a valley with a waterfall, a white city, a harbour, a forge, mines, forests), linked by roads and a river.
-- **Agents**: figures with a craft, a state lantern and a card. Coordinators carry a banner, and a Grand Master walks the whole map.
-- **The editor**: create, edit and delete agents in the page («+ Nuevo agente» in the «Agentes y bitácora» panel).
-- **The Watcher's Tower**: your projects, sorted by deadline. Each active project is a ring spinning around the flame.
-- **The Chronicle and the activity log**: everything the agents report, by day, with sessions and durations.
-- **Brasa, the guardian dragon**: its hoard grows with each finished task (+10 coins) and each project sent or achieved (chests).
-
-The interface is in Spanish.
-
-### How to open it
-
-Browsers do not let a page read `data/mundo.json` when `index.html` is opened with a double click. Serve the folder with any local server:
-
-```bash
-python3 -m http.server 8000
-```
-
-Then open <http://localhost:8000>. It also works as is on GitHub Pages (Settings → Pages → branch `main`, folder `/`).
-
-It needs an internet connection to load Three.js and the fonts from their CDNs.
-
-### How changes are saved
-
-1. On load, the page reads `data/mundo.json`.
-2. What you change in the page (agents, projects, states) is saved in your browser's `localStorage`. Only you see it, in that browser.
-3. To keep or share it, use **Descargar mundo.json** (at the bottom of the panel) and replace `data/mundo.json`.
-4. **Volver a data/mundo.json** drops the local changes and reloads the file.
-
-If you publish the page as a claude.ai artifact, it uses the artifact's database instead of the local file, and the conversations with agents, the Council and the call to the Master turn on. In the local copy those conversations are off.
-
-### How to edit `data/mundo.json`
-
-The file has seven collections: `lugares` (places), `salas` (teams), `agentes` (agents), `proyectos` (projects), `eventos` (log entries), `historia` (older Chronicle entries, optional) and `tesoro` (the dragon's hoard, in `tesoro.dragon`). Each one is an object keyed by id. The Spanish section above has a full example of each record and the list of valid values:
-
-- a place's `tipo` picks its scenery, and `x` / `z` set its spot on the map;
-- an agent's `personaje` is the name on the map and `nombre` its role;
-- `estado` is one of `trabajando`, `esperando`, `halt`, `listo`, `inactivo`;
-- `actividad` is the craft beside the figure;
-- `apariencia` sets the people (`raza`), colours and accessories.
-
-An outside agent (a script, another tool) can report its steps by writing `eventos` and updating the agent's `estado`.
-
-### License
-
-MIT. See [LICENSE](LICENSE). Uses [Three.js](https://threejs.org) (MIT) and Google Fonts (SIL Open Font License), loaded from their CDNs.
+Usa [Three.js](https://threejs.org) (MIT) y las fuentes Fredoka y Nunito (SIL Open Font License), que se cargan desde sus CDN. Código con [licencia MIT](LICENSE).
